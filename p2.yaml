@@ -22,17 +22,6 @@ dns:
   fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
 proxies:
 proxy-groups:
-  - { name: TLD-NOT-CN, type: select, proxies: [布吉岛，自动选择，故障转移] }
-  - { name: Applications, type: select, proxies: [布吉岛，自动选择，故障转移] }
-  - { name: Gfw, type: select, proxies: [布吉岛，自动选择，故障转移] }
-  - { name: CnCidr, type: select, proxies: [布吉岛，自动选择，故障转移] }
-  - { name: LanCidr, type: select, proxies: [布吉岛，自动选择，故障转移] }
-  - { name: Direct, type: select, proxies: [布吉岛，自动选择，故障转移] }
-  - { name: Proxy, type: select, proxies: [布吉岛，自动选择，故障转移] }
-  - { name: Google, type: select, proxies: [布吉岛，自动选择，故障转移] }
-  - { name: Apple, type: select, proxies: [布吉岛，自动选择，故障转移] }
-  - { name: iCloud, type: select, proxies: [布吉岛，自动选择，故障转移] }
-  - { name: Telegram, type: select, proxies: [布吉岛，自动选择，故障转移] }
   - { name: 布吉岛, type: select, proxies: [自动选择, 故障转移] }
   - {
       name: 自动选择,
@@ -49,18 +38,14 @@ proxy-groups:
       interval: 7200,
     }
 rules:
-  - RULE-SET,gfw,Gfw
-  - RULE-SET,google,Google
-  - RULE-SET,telegramcidr,Telegram
-  - RULE-SET,apple,Apple
-  - RULE-SET,icloud,iCloud
-  - RULE-SET,proxy,Proxy
-  - RULE-SET,direct,Direct
-  - RULE-SET,cncidr,CnCidr
-  - RULE-SET,lancidr,LanCidr
-  - RULE-SET,applications,Applications
-  - RULE-SET,tld-not-cn,TLD-NOT-CN
+  - RULE-SET,applications,DIRECT
+  - DOMAIN,clash.razord.top,DIRECT
+  - DOMAIN,yacd.haishan.me,DIRECT
   - RULE-SET,private,DIRECT
+  - RULE-SET,reject,REJECT
+  - RULE-SET,tld-not-cn,布吉岛
+  - RULE-SET,gfw,布吉岛
+  - RULE-SET,telegramcidr,布吉岛
   - MATCH,DIRECT
 rule-providers:
   reject:
