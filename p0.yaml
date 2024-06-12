@@ -22,18 +22,66 @@ dns:
   fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
 proxies:
 proxy-groups:
-  - { name: TLD-NOT-CN, type: select, proxies: [布吉岛，自动选择，故障转移] }
-  - { name: Applications, type: select, proxies: [布吉岛，自动选择，故障转移] }
-  - { name: Gfw, type: select, proxies: [布吉岛，自动选择，故障转移] }
-  - { name: CnCidr, type: select, proxies: [布吉岛，自动选择，故障转移] }
-  - { name: LanCidr, type: select, proxies: [布吉岛，自动选择，故障转移] }
-  - { name: Direct, type: select, proxies: [布吉岛，自动选择，故障转移] }
-  - { name: Proxy, type: select, proxies: [布吉岛，自动选择，故障转移] }
-  - { name: Google, type: select, proxies: [布吉岛，自动选择，故障转移] }
-  - { name: Apple, type: select, proxies: [布吉岛，自动选择，故障转移] }
-  - { name: iCloud, type: select, proxies: [布吉岛，自动选择，故障转移] }
-  - { name: Telegram, type: select, proxies: [布吉岛，自动选择，故障转移] }
-  - { name: 布吉岛, type: select, proxies: [自动选择, 故障转移] }
+  - {
+      name: TLD-NOT-CN,
+      type: select,
+      proxies: [布吉岛, 自动选择, 故障转移, DIRECT, REJECT],
+    }
+  - {
+      name: Applications,
+      type: select,
+      proxies: [布吉岛, 自动选择, 故障转移, DIRECT, REJECT],
+    }
+  - {
+      name: Gfw,
+      type: select,
+      proxies: [布吉岛, 自动选择, 故障转移, DIRECT, REJECT],
+    }
+  - {
+      name: CnCidr,
+      type: select,
+      proxies: [布吉岛, 自动选择, 故障转移, DIRECT, REJECT],
+    }
+  - {
+      name: LanCidr,
+      type: select,
+      proxies: [布吉岛, 自动选择, 故障转移, DIRECT, REJECT],
+    }
+  - {
+      name: Direct,
+      type: select,
+      proxies: [布吉岛, 自动选择, 故障转移, DIRECT, REJECT],
+    }
+  - {
+      name: Proxy,
+      type: select,
+      proxies: [布吉岛, 自动选择, 故障转移, DIRECT, REJECT],
+    }
+  - {
+      name: Google,
+      type: select,
+      proxies: [布吉岛, 自动选择, 故障转移, DIRECT, REJECT],
+    }
+  - {
+      name: Apple,
+      type: select,
+      proxies: [布吉岛, 自动选择, 故障转移, DIRECT, REJECT],
+    }
+  - {
+      name: iCloud,
+      type: select,
+      proxies: [布吉岛, 自动选择, 故障转移, DIRECT, REJECT],
+    }
+  - {
+      name: Telegram,
+      type: select,
+      proxies: [布吉岛, 自动选择, 故障转移, DIRECT, REJECT],
+    }
+  - {
+      name: 布吉岛,
+      type: select,
+      proxies: [自动选择, 故障转移, DIRECT, REJECT],
+    }
   - {
       name: 自动选择,
       type: url-test,
