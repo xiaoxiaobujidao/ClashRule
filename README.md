@@ -1,15 +1,5 @@
 # 布吉岛公共配置文件
 
-## 使用格式
-
-你的订阅地址+&cc=名称
-
-如 https://example.com/sub?key=aabbccddee&type=clash
-
-想使用的文件名为 p1.yaml
-
-则改为 https://example.com/sub?key=aabbccddee&type=clash&cc=p1
-
 ## 规则列表
 
 | 名称    | 简介                                                     | 作者                |
