@@ -22,6 +22,7 @@ proxy-groups:
       - 布吉岛
       - 自动选择
       - 故障转移
+      - 负载均衡
       - DIRECT
       - REJECT
   - name: Applications
@@ -31,6 +32,7 @@ proxy-groups:
       - 布吉岛
       - 自动选择
       - 故障转移
+      - 负载均衡
       - REJECT
   - name: Gfw
     type: select
@@ -38,6 +40,7 @@ proxy-groups:
       - 布吉岛
       - 自动选择
       - 故障转移
+      - 负载均衡
       - DIRECT
       - REJECT
   - name: CnCidr
@@ -47,6 +50,7 @@ proxy-groups:
       - 布吉岛
       - 自动选择
       - 故障转移
+      - 负载均衡
       - REJECT
   - name: LanCidr
     type: select
@@ -55,6 +59,7 @@ proxy-groups:
       - 布吉岛
       - 自动选择
       - 故障转移
+      - 负载均衡
       - REJECT
   - name: Direct
     type: select
@@ -63,6 +68,7 @@ proxy-groups:
       - 布吉岛
       - 自动选择
       - 故障转移
+      - 负载均衡
       - REJECT
   - name: Proxy
     type: select
@@ -70,6 +76,7 @@ proxy-groups:
       - 布吉岛
       - 自动选择
       - 故障转移
+      - 负载均衡
       - DIRECT
       - REJECT
   - name: Google
@@ -78,6 +85,7 @@ proxy-groups:
       - 自动选择
       - 布吉岛
       - 故障转移
+      - 负载均衡
       - DIRECT
       - REJECT
   - name: Apple
@@ -87,6 +95,7 @@ proxy-groups:
       - 布吉岛
       - 自动选择
       - 故障转移
+      - 负载均衡
       - REJECT
   - name: iCloud
     type: select
@@ -95,6 +104,7 @@ proxy-groups:
       - 布吉岛
       - 自动选择
       - 故障转移
+      - 负载均衡
       - REJECT
   - name: Telegram
     type: select
@@ -102,6 +112,7 @@ proxy-groups:
       - 自动选择
       - 布吉岛
       - 故障转移
+      - 负载均衡
       - DIRECT
       - REJECT
   - name: 布吉岛
@@ -109,6 +120,7 @@ proxy-groups:
     proxies:
       - 自动选择
       - 故障转移
+      - 负载均衡
       - DIRECT
       - REJECT
   - name: 自动选择
@@ -121,6 +133,11 @@ proxy-groups:
     proxies: []
     url: http://www.gstatic.com/generate_204
     interval: 7200
+  - name: "负载均衡"
+    type: load-balance
+    proxies: []
+    url: "https://www.gstatic.com/generate_204"
+    interval: 300
 rules:
   - RULE-SET,gfw,Gfw
   - RULE-SET,google,Google
