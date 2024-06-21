@@ -1,0 +1,233 @@
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+external-controller: 127.0.0.1:9090
+dns:
+  enable: true
+  ipv6: false
+  nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+  fallback:
+    - https://doh.dns.sb/dns-query
+    - https://dns.cloudflare.com/dns-query
+    - https://dns.twnic.tw/dns-query
+    - tls://8.8.4.4:853
+proxies: []
+proxy-groups:
+  - name: TLD-NOT-CN
+    type: select
+    proxies:
+      - 布吉岛
+      - 自动选择
+      - 故障转移
+      - 负载均衡
+      - DIRECT
+      - REJECT
+  - name: Applications
+    type: select
+    proxies:
+      - DIRECT
+      - 布吉岛
+      - 自动选择
+      - 故障转移
+      - 负载均衡
+      - REJECT
+  - name: Gfw
+    type: select
+    proxies:
+      - 布吉岛
+      - 自动选择
+      - 故障转移
+      - 负载均衡
+      - DIRECT
+      - REJECT
+  - name: CnCidr
+    type: select
+    proxies:
+      - DIRECT
+      - 布吉岛
+      - 自动选择
+      - 故障转移
+      - 负载均衡
+      - REJECT
+  - name: LanCidr
+    type: select
+    proxies:
+      - DIRECT
+      - 布吉岛
+      - 自动选择
+      - 故障转移
+      - 负载均衡
+      - REJECT
+  - name: Direct
+    type: select
+    proxies:
+      - DIRECT
+      - 布吉岛
+      - 自动选择
+      - 故障转移
+      - 负载均衡
+      - REJECT
+  - name: Proxy
+    type: select
+    proxies:
+      - 布吉岛
+      - 自动选择
+      - 故障转移
+      - 负载均衡
+      - DIRECT
+      - REJECT
+  - name: Google
+    type: select
+    proxies:
+      - 自动选择
+      - 布吉岛
+      - 故障转移
+      - 负载均衡
+      - DIRECT
+      - REJECT
+  - name: Apple
+    type: select
+    proxies:
+      - DIRECT
+      - 布吉岛
+      - 自动选择
+      - 故障转移
+      - 负载均衡
+      - REJECT
+  - name: iCloud
+    type: select
+    proxies:
+      - DIRECT
+      - 布吉岛
+      - 自动选择
+      - 故障转移
+      - 负载均衡
+      - REJECT
+  - name: Telegram
+    type: select
+    proxies:
+      - 自动选择
+      - 布吉岛
+      - 故障转移
+      - 负载均衡
+      - DIRECT
+      - REJECT
+  - name: 布吉岛
+    type: select
+    proxies:
+      - 自动选择
+      - 故障转移
+      - 负载均衡
+      - DIRECT
+      - REJECT
+  - name: 自动选择
+    type: url-test
+    proxies: []
+    url: http://www.gstatic.com/generate_204
+    interval: 86400
+  - name: 故障转移
+    type: fallback
+    proxies: []
+    url: http://www.gstatic.com/generate_204
+    interval: 7200
+  - name: "负载均衡"
+    type: load-balance
+    proxies: []
+    url: "https://www.gstatic.com/generate_204"
+    interval: 300
+rules:
+  - RULE-SET,gfw,Gfw
+  - RULE-SET,google,Google
+  - RULE-SET,telegramcidr,Telegram
+  - RULE-SET,apple,Apple
+  - RULE-SET,icloud,iCloud
+  - RULE-SET,proxy,Proxy
+  - RULE-SET,direct,Direct
+  - RULE-SET,cncidr,CnCidr
+  - RULE-SET,lancidr,LanCidr
+  - RULE-SET,applications,Applications
+  - RULE-SET,tld-not-cn,TLD-NOT-CN
+  - RULE-SET,private,DIRECT
+  - MATCH,布吉岛
+rule-providers:
+  reject:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt
+    path: ./ruleset/reject.yaml
+    interval: 86400
+  icloud:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt
+    path: ./ruleset/icloud.yaml
+    interval: 86400
+  apple:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt
+    path: ./ruleset/apple.yaml
+    interval: 86400
+  google:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt
+    path: ./ruleset/google.yaml
+    interval: 86400
+  proxy:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt
+    path: ./ruleset/proxy.yaml
+    interval: 86400
+  direct:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt
+    path: ./ruleset/direct.yaml
+    interval: 86400
+  private:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt
+    path: ./ruleset/private.yaml
+    interval: 86400
+  gfw:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt
+    path: ./ruleset/gfw.yaml
+    interval: 86400
+  tld-not-cn:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt
+    path: ./ruleset/tld-not-cn.yaml
+    interval: 86400
+  telegramcidr:
+    type: http
+    behavior: ipcidr
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt
+    path: ./ruleset/telegramcidr.yaml
+    interval: 86400
+  cncidr:
+    type: http
+    behavior: ipcidr
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt
+    path: ./ruleset/cncidr.yaml
+    interval: 86400
+  lancidr:
+    type: http
+    behavior: ipcidr
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt
+    path: ./ruleset/lancidr.yaml
+    interval: 86400
+  applications:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt
+    path: ./ruleset/applications.yaml
+    interval: 86400
