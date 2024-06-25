@@ -16,6 +16,14 @@ dns:
     - tls://8.8.4.4:853
 proxies: []
 proxy-groups:
+  - name: 布吉岛
+    type: select
+    proxies:
+      - 自动选择
+      - 故障转移
+      - 负载均衡
+      - DIRECT
+      - REJECT
   - name: TLD-NOT-CN
     type: select
     proxies:
@@ -111,14 +119,6 @@ proxy-groups:
     proxies:
       - 自动选择
       - 布吉岛
-      - 故障转移
-      - 负载均衡
-      - DIRECT
-      - REJECT
-  - name: 布吉岛
-    type: select
-    proxies:
-      - 自动选择
       - 故障转移
       - 负载均衡
       - DIRECT
