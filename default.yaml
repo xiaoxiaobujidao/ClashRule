@@ -80,8 +80,17 @@ proxy-groups:
       - 负载均衡
       - DIRECT
       - REJECT
-    include-all: true
     icon: "https://app.bujidao.org/svg/Disney.svg"
+  - name: TikTok
+    type: select
+    proxies:
+      - 布吉岛
+      - 最低延迟
+      - 高可用性
+      - 负载均衡
+      - DIRECT
+      - REJECT
+    icon: "https://app.bujidao.org/svg/TikTok.svg"
   - name: CnCidr
     type: select
     proxies:
@@ -91,6 +100,8 @@ proxy-groups:
       - 高可用性
       - 负载均衡
       - REJECT
+    include-all: true
+    filter: (?i)^(?!.*(?:🇭🇰|港|hk|hongkong|🏷|t\.me)).*
     icon: "https://app.bujidao.org/svg/China.svg"
   - name: TLD-NOT-CN
     type: select
@@ -136,342 +147,33 @@ proxy-groups:
     type: url-test
     proxies: []
     url: http://www.gstatic.com/generate_204
-    interval: 7200
+    interval: 600
     icon: "https://app.bujidao.org/svg/Fast.svg"
   - name: 高可用性
     type: fallback
     proxies: []
     url: http://www.gstatic.com/generate_204
-    interval: 600
+    interval: 300
     icon: "https://app.bujidao.org/svg/Fallback.svg"
   - name: "负载均衡"
     type: load-balance
     proxies: []
     url: "https://www.gstatic.com/generate_204"
-    interval: 1200
+    interval: 600
     hidden: true
 rules:
-  - DOMAIN-SUFFIX,20thcenturystudios.com.au,Disney
-  - DOMAIN-SUFFIX,20thcenturystudios.com.br,Disney
-  - DOMAIN-SUFFIX,20thcenturystudios.jp,Disney
-  - DOMAIN-SUFFIX,abc-studios.com,Disney
-  - DOMAIN-SUFFIX,abc.com,Disney
-  - DOMAIN-SUFFIX,abcnews.com,Disney
-  - DOMAIN-SUFFIX,abcnews.edgesuite.net,Disney
-  - DOMAIN-SUFFIX,adobedtm.com,Disney
-  - DOMAIN-SUFFIX,adventuresbydisney.com,Disney
-  - DOMAIN-SUFFIX,babble.com,Disney
-  - DOMAIN-SUFFIX,babyzone.com,Disney
-  - DOMAIN-SUFFIX,bam.nr-data.net,Disney
-  - DOMAIN-SUFFIX,bamgrid.com,Disney
-  - DOMAIN-SUFFIX,beautyandthebeastmusical.co.uk,Disney
-  - DOMAIN-SUFFIX,braze.com,Disney
-  - DOMAIN-SUFFIX,cdn.optimizely.com,Disney
-  - DOMAIN-SUFFIX,conviva.com,Disney
-  - DOMAIN-SUFFIX,d9.flashtalking.com,Disney
-  - DOMAIN-SUFFIX,dilcdn.com,Disney
-  - DOMAIN-SUFFIX,disney-asia.com,Disney
-  - DOMAIN-SUFFIX,disney-discount.com,Disney
-  - DOMAIN-SUFFIX,disney-plus.net,Disney
-  - DOMAIN-SUFFIX,disney-portal.my.onetrust.com,Disney
-  - DOMAIN-SUFFIX,disney-studio.com,Disney
-  - DOMAIN-SUFFIX,disney-studio.net,Disney
-  - DOMAIN-SUFFIX,disney.asia,Disney
-  - DOMAIN-SUFFIX,disney.be,Disney
-  - DOMAIN-SUFFIX,disney.bg,Disney
-  - DOMAIN-SUFFIX,disney.ca,Disney
-  - DOMAIN-SUFFIX,disney.ch,Disney
-  - DOMAIN-SUFFIX,disney.co.il,Disney
-  - DOMAIN-SUFFIX,disney.co.jp,Disney
-  - DOMAIN-SUFFIX,disney.co.kr,Disney
-  - DOMAIN-SUFFIX,disney.co.th,Disney
-  - DOMAIN-SUFFIX,disney.co.uk,Disney
-  - DOMAIN-SUFFIX,disney.co.za,Disney
-  - DOMAIN-SUFFIX,disney.com,Disney
-  - DOMAIN-SUFFIX,disney.com.au,Disney
-  - DOMAIN-SUFFIX,disney.com.br,Disney
-  - DOMAIN-SUFFIX,disney.com.hk,Disney
-  - DOMAIN-SUFFIX,disney.com.tw,Disney
-  - DOMAIN-SUFFIX,disney.cz,Disney
-  - DOMAIN-SUFFIX,disney.de,Disney
-  - DOMAIN-SUFFIX,disney.demdex.net,Disney
-  - DOMAIN-SUFFIX,disney.dk,Disney
-  - DOMAIN-SUFFIX,disney.es,Disney
-  - DOMAIN-SUFFIX,disney.fi,Disney
-  - DOMAIN-SUFFIX,disney.fr,Disney
-  - DOMAIN-SUFFIX,disney.gr,Disney
-  - DOMAIN-SUFFIX,disney.hu,Disney
-  - DOMAIN-SUFFIX,disney.id,Disney
-  - DOMAIN-SUFFIX,disney.in,Disney
-  - DOMAIN-SUFFIX,disney.io,Disney
-  - DOMAIN-SUFFIX,disney.it,Disney
-  - DOMAIN-SUFFIX,disney.my,Disney
-  - DOMAIN-SUFFIX,disney.my.sentry.io,Disney
-  - DOMAIN-SUFFIX,disney.nl,Disney
-  - DOMAIN-SUFFIX,disney.no,Disney
-  - DOMAIN-SUFFIX,disney.ph,Disney
-  - DOMAIN-SUFFIX,disney.pl,Disney
-  - DOMAIN-SUFFIX,disney.pt,Disney
-  - DOMAIN-SUFFIX,disney.ro,Disney
-  - DOMAIN-SUFFIX,disney.ru,Disney
-  - DOMAIN-SUFFIX,disney.se,Disney
-  - DOMAIN-SUFFIX,disney.sg,Disney
-  - DOMAIN-SUFFIX,disneyadsales.com,Disney
-  - DOMAIN-SUFFIX,disneyarena.com,Disney
-  - DOMAIN-SUFFIX,disneyaulani.com,Disney
-  - DOMAIN-SUFFIX,disneybaby.com,Disney
-  - DOMAIN-SUFFIX,disneycareers.com,Disney
-  - DOMAIN-SUFFIX,disneychannelonstage.com,Disney
-  - DOMAIN-SUFFIX,disneychannelroadtrip.com,Disney
-  - DOMAIN-SUFFIX,disneycruisebrasil.com,Disney
-  - DOMAIN-SUFFIX,disneyenconcert.com,Disney
-  - DOMAIN-SUFFIX,disneyiejobs.com,Disney
-  - DOMAIN-SUFFIX,disneyinflight.com,Disney
-  - DOMAIN-SUFFIX,disneyinternational.com,Disney
-  - DOMAIN-SUFFIX,disneyinternationalhd.com,Disney
-  - DOMAIN-SUFFIX,disneyjunior.com,Disney
-  - DOMAIN-SUFFIX,disneyjuniortreataday.com,Disney
-  - DOMAIN-SUFFIX,disneylatino.com,Disney
-  - DOMAIN-SUFFIX,disneymagicmoments.co.il,Disney
-  - DOMAIN-SUFFIX,disneymagicmoments.co.uk,Disney
-  - DOMAIN-SUFFIX,disneymagicmoments.co.za,Disney
-  - DOMAIN-SUFFIX,disneymagicmoments.de,Disney
-  - DOMAIN-SUFFIX,disneymagicmoments.es,Disney
-  - DOMAIN-SUFFIX,disneymagicmoments.fr,Disney
-  - DOMAIN-SUFFIX,disneymagicmoments.gen.tr,Disney
-  - DOMAIN-SUFFIX,disneymagicmoments.gr,Disney
-  - DOMAIN-SUFFIX,disneymagicmoments.it,Disney
-  - DOMAIN-SUFFIX,disneymagicmoments.pl,Disney
-  - DOMAIN-SUFFIX,disneymagicmomentsme.com,Disney
-  - DOMAIN-SUFFIX,disneyme.com,Disney
-  - DOMAIN-SUFFIX,disneymeetingsandevents.com,Disney
-  - DOMAIN-SUFFIX,disneymovieinsiders.com,Disney
-  - DOMAIN-SUFFIX,disneymusicpromotion.com,Disney
-  - DOMAIN-SUFFIX,disneynewseries.com,Disney
-  - DOMAIN-SUFFIX,disneynow.com,Disney
-  - DOMAIN-SUFFIX,disneypeoplesurveys.com,Disney
-  - DOMAIN-SUFFIX,disneyplus.bn5x.net,Disney
-  - DOMAIN-SUFFIX,disneyplus.com,Disney
-  - DOMAIN-SUFFIX,disneyplus.com.ssl.sc.omtrdc.net,Disney
-  - DOMAIN-SUFFIX,disneyredirects.com,Disney
-  - DOMAIN-SUFFIX,disneysrivieraresort.com,Disney
-  - DOMAIN-SUFFIX,disneystore.com,Disney
-  - DOMAIN-SUFFIX,disneystreaming.com,Disney
-  - DOMAIN-SUFFIX,disneysubscription.com,Disney
-  - DOMAIN-SUFFIX,disneytickets.co.uk,Disney
-  - DOMAIN-SUFFIX,disneyturkiye.com.tr,Disney
-  - DOMAIN-SUFFIX,disneytvajobs.com,Disney
-  - DOMAIN-SUFFIX,disneyworld-go.com,Disney
-  - DOMAIN-SUFFIX,dmed.technology,Disney
-  - DOMAIN-SUFFIX,dssott.com,Disney
-  - DOMAIN-SUFFIX,dtci.co,Disney
-  - DOMAIN-SUFFIX,dtci.technology,Disney
-  - DOMAIN-SUFFIX,edgedatg.com,Disney
-  - DOMAIN-SUFFIX,espn.co.uk,Disney
-  - DOMAIN-SUFFIX,espn.com,Disney
-  - DOMAIN-SUFFIX,espn.hb.omtrdc.net,Disney
-  - DOMAIN-SUFFIX,espn.net,Disney
-  - DOMAIN-SUFFIX,espncdn.com,Disney
-  - DOMAIN-SUFFIX,espndotcom.tt.omtrdc.net,Disney
-  - DOMAIN-SUFFIX,espnqa.com,Disney
-  - DOMAIN-SUFFIX,execute-api.us-east-1.amazonaws.com,Disney
-  - DOMAIN-SUFFIX,go-disneyworldgo.com,Disney
-  - DOMAIN-SUFFIX,go.com,Disney
-  - DOMAIN-SUFFIX,js-agent.newrelic.com,Disney
-  - DOMAIN-SUFFIX,marvel.com,Disney
-  - DOMAIN-SUFFIX,marvel10thanniversary.com,Disney
-  - DOMAIN-SUFFIX,marveldimensionofheroes.com,Disney
-  - DOMAIN-SUFFIX,marvelparty.net,Disney
-  - DOMAIN-SUFFIX,marvelpinball.com,Disney
-  - DOMAIN-SUFFIX,marvelsdoubleagent.com,Disney
-  - DOMAIN-SUFFIX,marvelspotlightplays.com,Disney
-  - DOMAIN-SUFFIX,marvelsuperheroseptember.com,Disney
-  - DOMAIN-SUFFIX,marvelsuperwar.com,Disney
-  - DOMAIN-SUFFIX,mickey.tv,Disney
-  - DOMAIN-SUFFIX,moviesanywhere.com,Disney
-  - DOMAIN-SUFFIX,natgeomaps.com,Disney
-  - DOMAIN-SUFFIX,nationalgeographic.com,Disney
-  - DOMAIN-SUFFIX,nationalgeographicpartners.com,Disney
-  - DOMAIN-SUFFIX,ngeo.com,Disney
-  - DOMAIN-SUFFIX,nomadlandmovie.ch,Disney
-  - DOMAIN-SUFFIX,playmation.com,Disney
-  - DOMAIN-SUFFIX,shopdisney.com,Disney
-  - DOMAIN-SUFFIX,shops-disney.com,Disney
-  - DOMAIN-SUFFIX,sorcerersarena.com,Disney
-  - DOMAIN-SUFFIX,spaindisney.com,Disney
-  - DOMAIN-SUFFIX,star-brasil.com,Disney
-  - DOMAIN-SUFFIX,star-latam.com,Disney
-  - DOMAIN-SUFFIX,starwars.com,Disney
-  - DOMAIN-SUFFIX,starwarsgalacticstarcruiser.com,Disney
-  - DOMAIN-SUFFIX,starwarskids.com,Disney
-  - DOMAIN-SUFFIX,streamingdisney.net,Disney
-  - DOMAIN-SUFFIX,themarvelexperiencetour.com,Disney
-  - DOMAIN-SUFFIX,thestationbymaker.com,Disney
-  - DOMAIN-SUFFIX,thisispolaris.com,Disney
-  - DOMAIN-SUFFIX,watchdisneyfe.com,Disney
-  - DOMAIN-SUFFIX,watchespn.com,Disney
-  - PROCESS-NAME,com.disney.datg.videoplatforms.android.abc,Disney
-  - DOMAIN,e13252.dscg.akamaiedge.net,Netflix
-  - DOMAIN,h-netflix.online-metrix.net,Netflix
-  - DOMAIN,netflix.com.edgesuite.net,Netflix
-  - DOMAIN-SUFFIX,fast.com,Netflix
-  - DOMAIN-SUFFIX,flxvpn.net,Netflix
-  - DOMAIN-SUFFIX,netflix.ca,Netflix
-  - DOMAIN-SUFFIX,netflix.com,Netflix
-  - DOMAIN-SUFFIX,netflix.com.au,Netflix
-  - DOMAIN-SUFFIX,netflix.com.edgesuite.net,Netflix
-  - DOMAIN-SUFFIX,netflix.net,Netflix
-  - DOMAIN-SUFFIX,netflixdnstest0.com,Netflix
-  - DOMAIN-SUFFIX,netflixdnstest1.com,Netflix
-  - DOMAIN-SUFFIX,netflixdnstest10.com,Netflix
-  - DOMAIN-SUFFIX,netflixdnstest2.com,Netflix
-  - DOMAIN-SUFFIX,netflixdnstest3.com,Netflix
-  - DOMAIN-SUFFIX,netflixdnstest4.com,Netflix
-  - DOMAIN-SUFFIX,netflixdnstest5.com,Netflix
-  - DOMAIN-SUFFIX,netflixdnstest6.com,Netflix
-  - DOMAIN-SUFFIX,netflixdnstest7.com,Netflix
-  - DOMAIN-SUFFIX,netflixdnstest8.com,Netflix
-  - DOMAIN-SUFFIX,netflixdnstest9.com,Netflix
-  - DOMAIN-SUFFIX,netflixinvestor.com,Netflix
-  - DOMAIN-SUFFIX,netflixstudios.com,Netflix
-  - DOMAIN-SUFFIX,netflixtechblog.com,Netflix
-  - DOMAIN-SUFFIX,nflxext.com,Netflix
-  - DOMAIN-SUFFIX,nflximg.com,Netflix
-  - DOMAIN-SUFFIX,nflximg.net,Netflix
-  - DOMAIN-SUFFIX,nflxsearch.net,Netflix
-  - DOMAIN-SUFFIX,nflxso.net,Netflix
-  - DOMAIN-SUFFIX,nflxvideo.net,Netflix
-  - DOMAIN-KEYWORD,apiproxy-device-prod-nlb-,Netflix
-  - DOMAIN-KEYWORD,dualstack.apiproxy-,Netflix
-  - DOMAIN-KEYWORD,dualstack.ichnaea-web-,Netflix
-  - DOMAIN-KEYWORD,netflixdnstest,Netflix
-  - DOMAIN-SUFFIX,1drv.com,Microsoft
-  - DOMAIN-SUFFIX,aadrm.com,Microsoft
-  - DOMAIN-SUFFIX,acompli.com,Microsoft
-  - DOMAIN-SUFFIX,acompli.net,Microsoft
-  - DOMAIN-SUFFIX,aka.ms,Microsoft
-  - DOMAIN-SUFFIX,akadns.net,Microsoft
-  - DOMAIN-SUFFIX,aspnetcdn.com,Microsoft
-  - DOMAIN-SUFFIX,assets-yammer.com,Microsoft
-  - DOMAIN-SUFFIX,azure.cn,Microsoft
-  - DOMAIN-SUFFIX,azure.com,Microsoft
-  - DOMAIN-SUFFIX,azure.net,Microsoft
-  - DOMAIN-SUFFIX,azureedge.net,Microsoft
-  - DOMAIN-SUFFIX,azurerms.com,Microsoft
-  - DOMAIN-SUFFIX,bing.com,Microsoft
-  - DOMAIN-SUFFIX,bing.com.cn,Microsoft
-  - DOMAIN-SUFFIX,bingads.com,Microsoft
-  - DOMAIN-SUFFIX,bingagencyawards.com,Microsoft
-  - DOMAIN-SUFFIX,bingapistatistics.com,Microsoft
-  - DOMAIN-SUFFIX,bingsandbox.com,Microsoft
-  - DOMAIN-SUFFIX,bingvisualsearch.com,Microsoft
-  - DOMAIN-SUFFIX,bingworld.com,Microsoft
-  - DOMAIN-SUFFIX,bluehatnights.com,Microsoft
-  - DOMAIN-SUFFIX,dictate.ms,Microsoft
-  - DOMAIN-SUFFIX,flipwithsurface.com,Microsoft
-  - DOMAIN-SUFFIX,masalladeloslimites.com,Microsoft
-  - DOMAIN-SUFFIX,microsoft-give.com,Microsoft
-  - DOMAIN-SUFFIX,microsoftcloudsummit.com,Microsoft
-  - DOMAIN-SUFFIX,microsoftdiplomados.com,Microsoft
-  - DOMAIN-SUFFIX,microsoftlatamholiday.com,Microsoft
-  - DOMAIN-SUFFIX,microsoftmxfilantropia.com,Microsoft
-  - DOMAIN-SUFFIX,microsoftpartnersolutions.com,Microsoft
-  - DOMAIN-SUFFIX,msunlimitedcloudsummit.com,Microsoft
-  - DOMAIN-SUFFIX,office365love.com,Microsoft
-  - DOMAIN-SUFFIX,office365tw.com,Microsoft
-  - DOMAIN-SUFFIX,renovacionoffice.com,Microsoft
-  - DOMAIN-SUFFIX,sprinklesapp.com,Microsoft
-  - DOMAIN-SUFFIX,cn.bing.com,Microsoft
-  - DOMAIN-SUFFIX,cn.bing.net,Microsoft
-  - DOMAIN-SUFFIX,ditu.live.com,Microsoft
-  - DOMAIN-SUFFIX,full:bj1.api.bing.com,Microsoft
-  - DOMAIN-SUFFIX,full:emoi-cncdn.bing.com,Microsoft
-  - DOMAIN-SUFFIX,bing.net,Microsoft
-  - DOMAIN-SUFFIX,cloudapp.net,Microsoft
-  - DOMAIN-SUFFIX,cloudappsecurity.com,Microsoft
-  - DOMAIN-SUFFIX,docs.com,Microsoft
-  - DOMAIN-SUFFIX,edgesuite.net,Microsoft
-  - DOMAIN-SUFFIX,fabric.io,Microsoft
-  - DOMAIN-SUFFIX,gfx.ms,Microsoft
-  - DOMAIN-SUFFIX,hotmail.com,Microsoft
-  - DOMAIN-SUFFIX,live.com,Microsoft
-  - DOMAIN-SUFFIX,live.net,Microsoft
-  - DOMAIN-SUFFIX,livefilestore.com,Microsoft
-  - DOMAIN-SUFFIX,lync.com,Microsoft
-  - DOMAIN-SUFFIX,mesh.com,Microsoft
-  - DOMAIN-SUFFIX,microsoft-tst.com,Microsoft
-  - DOMAIN-SUFFIX,microsoft.com,Microsoft
-  - DOMAIN-SUFFIX,microsoftonline.com,Microsoft
-  - DOMAIN-SUFFIX,msappproxy.net,Microsoft
-  - DOMAIN-SUFFIX,msauth.net,Microsoft
-  - DOMAIN-SUFFIX,msauthimages.net,Microsoft
-  - DOMAIN-SUFFIX,msecnd.net,Microsoft
-  - DOMAIN-SUFFIX,msedge.net,Microsoft
-  - DOMAIN-SUFFIX,msft.net,Microsoft
-  - DOMAIN-SUFFIX,msftauth.net,Microsoft
-  - DOMAIN-SUFFIX,msftauthimages.net,Microsoft
-  - DOMAIN-SUFFIX,msftconnecttest.com,Microsoft
-  - DOMAIN-SUFFIX,msftidentity.com,Microsoft
-  - DOMAIN-SUFFIX,msidentity.com,Microsoft
-  - DOMAIN-SUFFIX,msn.com,Microsoft
-  - DOMAIN-SUFFIX,msocdn.com,Microsoft
-  - DOMAIN-SUFFIX,msocsp.com,Microsoft
-  - DOMAIN-SUFFIX,mstea.ms,Microsoft
-  - DOMAIN-SUFFIX,o365weve.com,Microsoft
-  - DOMAIN-SUFFIX,oaspapps.com,Microsoft
-  - DOMAIN-SUFFIX,office.com,Microsoft
-  - DOMAIN-SUFFIX,office.net,Microsoft
-  - DOMAIN-SUFFIX,office365.com,Microsoft
-  - DOMAIN-SUFFIX,officeppe.net,Microsoft
-  - DOMAIN-SUFFIX,omniroot.com,Microsoft
-  - DOMAIN-SUFFIX,onedrive.com,Microsoft
-  - DOMAIN-SUFFIX,onenote.com,Microsoft
-  - DOMAIN-SUFFIX,onenote.net,Microsoft
-  - DOMAIN-SUFFIX,onestore.ms,Microsoft
-  - DOMAIN-SUFFIX,onmicrosoft.com,Microsoft
-  - DOMAIN-SUFFIX,outlook.com,Microsoft
-  - DOMAIN-SUFFIX,outlookgroups.ms,Microsoft
-  - DOMAIN-SUFFIX,outlookmobile.com,Microsoft
-  - DOMAIN-SUFFIX,phonefactor.net,Microsoft
-  - DOMAIN-SUFFIX,public-trust.com,Microsoft
-  - DOMAIN-SUFFIX,s-microsoft.com,Microsoft
-  - DOMAIN-SUFFIX,sfbassets.com,Microsoft
-  - DOMAIN-SUFFIX,sfx.ms,Microsoft
-  - DOMAIN-SUFFIX,sharepoint.com,Microsoft
-  - DOMAIN-SUFFIX,sharepointonline.com,Microsoft
-  - DOMAIN-SUFFIX,skype.com,Microsoft
-  - DOMAIN-SUFFIX,skypeassets.com,Microsoft
-  - DOMAIN-SUFFIX,skypeforbusiness.com,Microsoft
-  - DOMAIN-SUFFIX,spoprod-a.akamaihd.net,Microsoft
-  - DOMAIN-SUFFIX,staffhub.ms,Microsoft
-  - DOMAIN-SUFFIX,svc.ms,Microsoft
-  - DOMAIN-SUFFIX,sway-cdn.com,Microsoft
-  - DOMAIN-SUFFIX,sway-extensions.com,Microsoft
-  - DOMAIN-SUFFIX,sway.com,Microsoft
-  - DOMAIN-SUFFIX,trafficmanager.net,Microsoft
-  - DOMAIN-SUFFIX,uservoice.com,Microsoft
-  - DOMAIN-SUFFIX,virtualearth.net,Microsoft
-  - DOMAIN-SUFFIX,visualstudio.com,Microsoft
-  - DOMAIN-SUFFIX,windows-ppe.net,Microsoft
-  - DOMAIN-SUFFIX,windows.com,Microsoft
-  - DOMAIN-SUFFIX,windows.net,Microsoft
-  - DOMAIN-SUFFIX,windowsazure.com,Microsoft
-  - DOMAIN-SUFFIX,windowsupdate.com,Microsoft
-  - DOMAIN-SUFFIX,wunderlist.com,Microsoft
-  - DOMAIN-SUFFIX,xbox.cn,Microsoft
-  - DOMAIN-SUFFIX,xbox.com,Microsoft
-  - DOMAIN-SUFFIX,xboxlive.cn,Microsoft
-  - DOMAIN-SUFFIX,xboxlive.com,Microsoft
-  - DOMAIN-SUFFIX,yammer.com,Microsoft
-  - DOMAIN-SUFFIX,yammerusercontent.com,Microsoft
-  - DOMAIN-KEYWORD,1drv,Microsoft
-  - DOMAIN-KEYWORD,microsoft,Microsoft
-  - DOMAIN-KEYWORD,onedrive,Microsoft
-  - DOMAIN-KEYWORD,skydrive,Microsoft
-  - RULE-SET,google,Google
-  - RULE-SET,telegramcidr,Telegram
-  - RULE-SET,apple,Apple
-  - RULE-SET,icloud,iCloud
+  - RULE-SET,Telegram,Telegram
+  - RULE-SET,Netflix,Netflix
+  - RULE-SET,Disney,Disney
+  - RULE-SET,TikTok,TikTok
+  - RULE-SET,Google,Google
+  - RULE-SET,YouTube,Google
+  - RULE-SET,Bing,Microsoft
+  - RULE-SET,Microsoft,Microsoft
+  - RULE-SET,MicrosoftEdge,Microsoft
+  - RULE-SET,Apple,Apple
+  - RULE-SET,AppStore,Apple
+  - RULE-SET,iCloud,iCloud
   - RULE-SET,cncidr,CnCidr
   - RULE-SET,tld-not-cn,TLD-NOT-CN
   - RULE-SET,gfw,GFW
@@ -484,58 +186,105 @@ rule-providers:
     behavior: domain
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt
     path: ./ruleset/reject.yaml
-    interval: 86400
-  icloud:
+    interval: 7200
+  Apple:
     type: http
-    behavior: domain
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt
-    path: ./ruleset/icloud.yaml
-    interval: 86400
-  apple:
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.yaml"
+    path: ./ruleset/Apple.yaml
+    interval: 7200
+  AppStore:
     type: http
-    behavior: domain
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt
-    path: ./ruleset/apple.yaml
-    interval: 86400
-  google:
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AppStore/AppStore.yaml"
+    path: ./ruleset/AppStore.yaml
+    interval: 7200
+  iCloud:
     type: http
-    behavior: domain
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt
-    path: ./ruleset/google.yaml
-    interval: 86400
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/iCloud/iCloud.yaml"
+    path: ./ruleset/iCloud.yaml
+    interval: 7200
+  Google:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.yaml"
+    path: ./ruleset/Google.yaml
+    interval: 7200
+  YouTube:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml"
+    path: ./ruleset/YouTube.yaml
+    interval: 7200
   private:
     type: http
     behavior: domain
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt
     path: ./ruleset/private.yaml
-    interval: 86400
+    interval: 7200
   gfw:
     type: http
     behavior: domain
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt
     path: ./ruleset/gfw.yaml
-    interval: 86400
+    interval: 7200
   tld-not-cn:
     type: http
     behavior: domain
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt
     path: ./ruleset/tld-not-cn.yaml
-    interval: 86400
-  telegramcidr:
+    interval: 7200
+  Telegram:
     type: http
-    behavior: ipcidr
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt
-    path: ./ruleset/telegramcidr.yaml
-    interval: 86400
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.yaml"
+    path: ./ruleset/Telegram.yaml
+    interval: 7200
+  Netflix:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix.yaml"
+    path: ./ruleset/Netflix.yaml
+    interval: 7200
+  TikTok:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.yaml"
+    path: ./ruleset/TikTok.yaml
+    interval: 7200
+  Disney:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Disney/Disney.yaml"
+    path: ./ruleset/Disney.yaml
+    interval: 7200
+  Microsoft:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.yaml"
+    path: ./ruleset/Microsoft.yaml
+  MicrosoftEdge:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/MicrosoftEdge/MicrosoftEdge.yaml"
+    path: ./ruleset/MicrosoftEdge.yaml
+    interval: 7200
+  Bing:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bing/Bing.yaml"
+    path: ./ruleset/Bing.yaml
+    interval: 7200
   cncidr:
     type: http
     behavior: ipcidr
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt
     path: ./ruleset/cncidr.yaml
-    interval: 86400
+    interval: 7200
   lancidr:
     type: http
     behavior: ipcidr
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt
     path: ./ruleset/lancidr.yaml
-    interval: 86400
+    interval: 7200
