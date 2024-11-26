@@ -468,13 +468,13 @@ rules:
   - DOMAIN-KEYWORD,microsoft,Microsoft
   - DOMAIN-KEYWORD,onedrive,Microsoft
   - DOMAIN-KEYWORD,skydrive,Microsoft
-  - RULE-SET,gfw,GFW
   - RULE-SET,google,Google
   - RULE-SET,telegramcidr,Telegram
   - RULE-SET,apple,Apple
   - RULE-SET,icloud,iCloud
   - RULE-SET,cncidr,CnCidr
   - RULE-SET,tld-not-cn,TLD-NOT-CN
+  - RULE-SET,gfw,GFW
   - RULE-SET,lancidr,DIRECT
   - RULE-SET,private,DIRECT
   - MATCH,布吉岛
