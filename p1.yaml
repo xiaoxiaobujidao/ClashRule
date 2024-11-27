@@ -42,6 +42,7 @@ proxy-groups:
     hidden: true
 rules:
   - RULE-SET,Telegram,布吉岛
+  - RULE-SET,OpenAI,布吉岛
   - RULE-SET,Netflix,布吉岛
   - RULE-SET,Disney,布吉岛
   - RULE-SET,TikTok,布吉岛
@@ -153,3 +154,10 @@ rule-providers:
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt
     path: ./ruleset/lancidr.yaml
     interval: 7200
+  OpenAI:
+    type: http
+    behavior: classical
+    url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml
+    path: ./ruleset/OpenAI.yaml
+    interval: 7200
+
