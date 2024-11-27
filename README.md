@@ -32,6 +32,8 @@ p 开头的规则及 default 为岛民共同所有
 使用其他人的规则可能有风险，Github 上的规则与实际规则可能不符
 
 岛岛本人对 Clash 规则一窍不通
+## 致谢
+https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash
 
 ## 问题反馈
 
