@@ -47,7 +47,6 @@ rules:
   - RULE-SET,TikTok,布吉岛
   - RULE-SET,Google,布吉岛
   - RULE-SET,YouTube,布吉岛
-  - RULE-SET,tld-not-cn,布吉岛
   - RULE-SET,gfw,布吉岛
   - RULE-SET,lancidr,DIRECT
   - RULE-SET,private,DIRECT
@@ -100,12 +99,6 @@ rule-providers:
     behavior: domain
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt
     path: ./ruleset/gfw.yaml
-    interval: 7200
-  tld-not-cn:
-    type: http
-    behavior: domain
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt
-    path: ./ruleset/tld-not-cn.yaml
     interval: 7200
   Telegram:
     type: http

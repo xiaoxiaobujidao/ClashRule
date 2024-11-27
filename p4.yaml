@@ -103,16 +103,6 @@ proxy-groups:
     include-all: true
     filter: (?i)^(?!.*(?:🇭🇰|港|hk|hongkong|🏷|t\.me)).*
     icon: "https://app.bujidao.org/svg/China.svg"
-  - name: TLD-NOT-CN
-    type: select
-    proxies:
-      - 布吉岛
-      - 最低延迟
-      - 高可用性
-      - 负载均衡
-      - DIRECT
-      - REJECT
-    icon: "https://app.bujidao.org/svg/Flag.svg"
   - name: Apple
     type: select
     proxies:
@@ -175,7 +165,6 @@ rules:
   - RULE-SET,AppStore,Apple
   - RULE-SET,iCloud,iCloud
   - RULE-SET,cncidr,CnCidr
-  - RULE-SET,tld-not-cn,TLD-NOT-CN
   - RULE-SET,gfw,GFW
   - RULE-SET,lancidr,DIRECT
   - RULE-SET,private,DIRECT
@@ -228,12 +217,6 @@ rule-providers:
     behavior: domain
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt
     path: ./ruleset/gfw.yaml
-    interval: 7200
-  tld-not-cn:
-    type: http
-    behavior: domain
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt
-    path: ./ruleset/tld-not-cn.yaml
     interval: 7200
   Telegram:
     type: http
