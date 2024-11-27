@@ -34,6 +34,7 @@ proxy-groups:
       - 负载均衡
       - REJECT
     include-all: true
+    icon: "https://app.bujidao.org/svg/China.svg"
   - name: GFW
     type: select
     proxies:
@@ -44,7 +45,6 @@ proxy-groups:
       - DIRECT
       - REJECT
     icon: "https://app.bujidao.org/svg/Firewall.svg"
-    icon: "https://app.bujidao.org/svg/China.svg"
   - name: Google
     type: select
     proxies:
