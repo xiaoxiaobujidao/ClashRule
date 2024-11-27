@@ -19,256 +19,263 @@ proxy-groups:
   - name: 布吉岛
     type: select
     proxies:
-      - 自动选择
-      - 故障转移
+      - 最低延迟
+      - 高可用性
       - 负载均衡
       - DIRECT
       - REJECT
-  - name: TLD-NOT-CN
+  - name: GFW
     type: select
     proxies:
       - 布吉岛
-      - 自动选择
-      - 故障转移
+      - 最低延迟
+      - 高可用性
       - 负载均衡
       - DIRECT
       - REJECT
-  - name: Applications
+    icon: "https://app.bujidao.org/svg/Firewall.svg"
+  - name: Google
     type: select
     proxies:
-      - DIRECT
+      - 最低延迟
       - 布吉岛
-      - 自动选择
-      - 故障转移
+      - 高可用性
       - 负载均衡
+      - DIRECT
       - REJECT
-  - name: Gfw
+    icon: "https://app.bujidao.org/svg/Google.svg"
+  - name: OpenAI
     type: select
     proxies:
       - 布吉岛
-      - 自动选择
-      - 故障转移
+    include-all: true
+    filter: (?i)^(?!.*(?:🇭🇰|港|hk|hongkong|🏷|t\.me)).*
+    icon: "https://app.bujidao.org/svg/OpenAI.svg"
+  - name: Microsoft
+    type: select
+    proxies:
+      - 布吉岛
+      - 最低延迟
+      - 高可用性
       - 负载均衡
       - DIRECT
       - REJECT
+    icon: "https://app.bujidao.org/svg/Microsoft.svg"
+  - name: Netflix
+    type: select
+    proxies:
+      - 布吉岛
+      - 最低延迟
+      - 高可用性
+      - 负载均衡
+      - DIRECT
+      - REJECT
+    icon: "https://app.bujidao.org/svg/Netflix.svg"
+  - name: Disney
+    type: select
+    proxies:
+      - 布吉岛
+      - 最低延迟
+      - 高可用性
+      - 负载均衡
+      - DIRECT
+      - REJECT
+    icon: "https://app.bujidao.org/svg/Disney.svg"
+  - name: TikTok
+    type: select
+    proxies:
+      - 布吉岛
+      - 最低延迟
+      - 高可用性
+      - 负载均衡
+      - DIRECT
+      - REJECT
+    icon: "https://app.bujidao.org/svg/TikTok.svg"
   - name: CnCidr
     type: select
     proxies:
       - DIRECT
       - 布吉岛
-      - 自动选择
-      - 故障转移
+      - 最低延迟
+      - 高可用性
       - 负载均衡
       - REJECT
-  - name: LanCidr
-    type: select
-    proxies:
-      - DIRECT
-      - 布吉岛
-      - 自动选择
-      - 故障转移
-      - 负载均衡
-      - REJECT
-  - name: Direct
-    type: select
-    proxies:
-      - DIRECT
-      - 布吉岛
-      - 自动选择
-      - 故障转移
-      - 负载均衡
-      - REJECT
-  - name: Proxy
-    type: select
-    proxies:
-      - 布吉岛
-      - 自动选择
-      - 故障转移
-      - 负载均衡
-      - DIRECT
-      - REJECT
-  - name: Google
-    type: select
-    proxies:
-      - 自动选择
-      - 布吉岛
-      - 故障转移
-      - 负载均衡
-      - DIRECT
-      - REJECT
+    include-all: true
+    filter: (?i)^(?!.*(?:🇭🇰|港|hk|hongkong|🏷|t\.me)).*
+    icon: "https://app.bujidao.org/svg/China.svg"
   - name: Apple
     type: select
     proxies:
       - DIRECT
       - 布吉岛
-      - 自动选择
-      - 故障转移
+      - 最低延迟
+      - 高可用性
       - 负载均衡
       - REJECT
+    icon: "https://app.bujidao.org/svg/Apple.svg"
   - name: iCloud
     type: select
     proxies:
       - DIRECT
       - 布吉岛
-      - 自动选择
-      - 故障转移
+      - 最低延迟
+      - 高可用性
       - 负载均衡
       - REJECT
+    icon: "https://app.bujidao.org/svg/iCloud.svg"
   - name: Telegram
     type: select
     proxies:
-      - 自动选择
-      - 布吉岛
-      - 故障转移
       - 负载均衡
+      - 布吉岛
+      - 最低延迟
+      - 高可用性
       - DIRECT
       - REJECT
-  - name: 自动选择
+    icon: "https://app.bujidao.org/svg/Telegram.svg"
+  - name: 最低延迟
     type: url-test
     proxies: []
     url: http://www.gstatic.com/generate_204
-    interval: 86400
-  - name: 故障转移
+    interval: 600
+    icon: "https://app.bujidao.org/svg/Fast.svg"
+  - name: 高可用性
     type: fallback
     proxies: []
     url: http://www.gstatic.com/generate_204
-    interval: 7200
+    interval: 300
+    icon: "https://app.bujidao.org/svg/Fallback.svg"
   - name: "负载均衡"
     type: load-balance
     proxies: []
     url: "https://www.gstatic.com/generate_204"
-    interval: 300
+    interval: 600
+    hidden: true
 rules:
-  - RULE-SET,gfw,Gfw
-  - RULE-SET,google,Google
-  - RULE-SET,telegramcidr,Telegram
-  - RULE-SET,apple,Apple
-  - RULE-SET,icloud,iCloud
-  - RULE-SET,proxy,Proxy
-  - RULE-SET,direct,Direct
+  - RULE-SET,adblock,REJECT
+  - RULE-SET,Telegram,Telegram
+  - RULE-SET,Netflix,Netflix
+  - RULE-SET,Disney,Disney
+  - RULE-SET,TikTok,TikTok
+  - RULE-SET,Google,Google
+  - RULE-SET,YouTube,Google
+  - RULE-SET,Bing,Microsoft
+  - RULE-SET,Microsoft,Microsoft
+  - RULE-SET,MicrosoftEdge,Microsoft
+  - RULE-SET,Apple,Apple
+  - RULE-SET,AppStore,Apple
+  - RULE-SET,iCloud,iCloud
   - RULE-SET,cncidr,CnCidr
-  - RULE-SET,lancidr,LanCidr
-  - RULE-SET,applications,Applications
-  - RULE-SET,tld-not-cn,TLD-NOT-CN
+  - RULE-SET,gfw,GFW
+  - RULE-SET,lancidr,DIRECT
   - RULE-SET,private,DIRECT
-  # 广告
-  - RULE-SET,AD,REJECT
-  - RULE-SET,EasyList,REJECT
-  - RULE-SET,EasyListChina,REJECT
-  - RULE-SET,EasyPrivacy,REJECT
-  - RULE-SET,ProgramAD,REJECT
   - MATCH,布吉岛
 rule-providers:
-# 广告
-  AD:
-    type: http
-    behavior: domain
-    url: "https://raw.githubusercontent.com/earoftoast/clash-rules/main/AD.yaml"
-    path: ./rules/AD.yaml
-    interval: 86400
-
-  EasyList:
-    type: http
-    behavior: domain
-    url: "https://raw.githubusercontent.com/earoftoast/clash-rules/main/EasyList.yaml"
-    path: ./rules/EasyList.yaml
-    interval: 86400
-
-  EasyListChina:
-    type: http
-    behavior: domain
-    url: "https://raw.githubusercontent.com/earoftoast/clash-rules/main/EasyListChina.yaml"
-    path: ./rules/EasyListChina.yaml
-    interval: 86400
-
-  EasyPrivacy:
-    type: http
-    behavior: domain
-    url: "https://raw.githubusercontent.com/earoftoast/clash-rules/main/EasyPrivacy.yaml"
-    path: ./rules/EasyPrivacy.yaml
-    interval: 86400
-  ProgramAD:
-    type: http
-    behavior: domain
-    url: "https://raw.githubusercontent.com/earoftoast/clash-rules/main/ProgramAD.yaml"
-    path: ./rules/ProgramAD.yaml
-    interval: 86400
-    # 
   reject:
     type: http
     behavior: domain
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt
     path: ./ruleset/reject.yaml
-    interval: 86400
-  icloud:
+    interval: 7200
+  Apple:
     type: http
-    behavior: domain
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt
-    path: ./ruleset/icloud.yaml
-    interval: 86400
-  apple:
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.yaml"
+    path: ./ruleset/Apple.yaml
+    interval: 7200
+  AppStore:
     type: http
-    behavior: domain
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt
-    path: ./ruleset/apple.yaml
-    interval: 86400
-  google:
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AppStore/AppStore.yaml"
+    path: ./ruleset/AppStore.yaml
+    interval: 7200
+  iCloud:
     type: http
-    behavior: domain
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt
-    path: ./ruleset/google.yaml
-    interval: 86400
-  proxy:
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/iCloud/iCloud.yaml"
+    path: ./ruleset/iCloud.yaml
+    interval: 7200
+  Google:
     type: http
-    behavior: domain
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt
-    path: ./ruleset/proxy.yaml
-    interval: 86400
-  direct:
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.yaml"
+    path: ./ruleset/Google.yaml
+    interval: 7200
+  YouTube:
     type: http
-    behavior: domain
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt
-    path: ./ruleset/direct.yaml
-    interval: 86400
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml"
+    path: ./ruleset/YouTube.yaml
+    interval: 7200
   private:
     type: http
     behavior: domain
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt
     path: ./ruleset/private.yaml
-    interval: 86400
+    interval: 7200
   gfw:
     type: http
     behavior: domain
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt
     path: ./ruleset/gfw.yaml
-    interval: 86400
-  tld-not-cn:
+    interval: 7200
+  Telegram:
     type: http
-    behavior: domain
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt
-    path: ./ruleset/tld-not-cn.yaml
-    interval: 86400
-  telegramcidr:
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.yaml"
+    path: ./ruleset/Telegram.yaml
+    interval: 7200
+  Netflix:
     type: http
-    behavior: ipcidr
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt
-    path: ./ruleset/telegramcidr.yaml
-    interval: 86400
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix.yaml"
+    path: ./ruleset/Netflix.yaml
+    interval: 7200
+  TikTok:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.yaml"
+    path: ./ruleset/TikTok.yaml
+    interval: 7200
+  Disney:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Disney/Disney.yaml"
+    path: ./ruleset/Disney.yaml
+    interval: 7200
+  Microsoft:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.yaml"
+    path: ./ruleset/Microsoft.yaml
+  MicrosoftEdge:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/MicrosoftEdge/MicrosoftEdge.yaml"
+    path: ./ruleset/MicrosoftEdge.yaml
+    interval: 7200
+  Bing:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bing/Bing.yaml"
+    path: ./ruleset/Bing.yaml
+    interval: 7200
   cncidr:
     type: http
     behavior: ipcidr
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt
     path: ./ruleset/cncidr.yaml
-    interval: 86400
+    interval: 7200
   lancidr:
     type: http
     behavior: ipcidr
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt
     path: ./ruleset/lancidr.yaml
-    interval: 86400
-  applications:
+    interval: 7200
+  adblock:
     type: http
-    behavior: classical
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt
-    path: ./ruleset/applications.yaml
-    interval: 86400
+    behavior: domain
+    format: yaml
+    url: https://raw.githubusercontent.com/REIJI007/AdBlock_Rule_For_Clash/main/adblock_reject.yaml
+    path: ./ruleset/adblock_reject.yaml
+    interval: 120
