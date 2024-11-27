@@ -24,16 +24,6 @@ proxy-groups:
       - 负载均衡
       - DIRECT
       - REJECT
-  - name: GFW
-    type: select
-    proxies:
-      - 布吉岛
-      - 最低延迟
-      - 高可用性
-      - 负载均衡
-      - DIRECT
-      - REJECT
-    icon: "https://app.bujidao.org/svg/Firewall.svg"
   - name: CnCidr
     type: select
     proxies:
@@ -44,6 +34,16 @@ proxy-groups:
       - 负载均衡
       - REJECT
     include-all: true
+  - name: GFW
+    type: select
+    proxies:
+      - 布吉岛
+      - 最低延迟
+      - 高可用性
+      - 负载均衡
+      - DIRECT
+      - REJECT
+    icon: "https://app.bujidao.org/svg/Firewall.svg"
     icon: "https://app.bujidao.org/svg/China.svg"
   - name: Google
     type: select
