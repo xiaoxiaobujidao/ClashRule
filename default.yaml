@@ -34,6 +34,17 @@ proxy-groups:
       - DIRECT
       - REJECT
     icon: "https://app.bujidao.org/svg/Firewall.svg"
+  - name: CnCidr
+    type: select
+    proxies:
+      - DIRECT
+      - 布吉岛
+      - 最低延迟
+      - 高可用性
+      - 负载均衡
+      - REJECT
+    include-all: true
+    icon: "https://app.bujidao.org/svg/China.svg"
   - name: Google
     type: select
     proxies:
@@ -91,18 +102,6 @@ proxy-groups:
       - DIRECT
       - REJECT
     icon: "https://app.bujidao.org/svg/TikTok.svg"
-  - name: CnCidr
-    type: select
-    proxies:
-      - DIRECT
-      - 布吉岛
-      - 最低延迟
-      - 高可用性
-      - 负载均衡
-      - REJECT
-    include-all: true
-    filter: (?i)^(?!.*(?:🇭🇰|港|hk|hongkong|🏷|t\.me)).*
-    icon: "https://app.bujidao.org/svg/China.svg"
   - name: Apple
     type: select
     proxies:
