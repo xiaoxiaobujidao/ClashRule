@@ -41,6 +41,10 @@ proxy-groups:
     interval: 600
     hidden: true
 rules:
+  - DOMAIN-SUFFIX,bujidao.cc,布吉岛
+  - DOMAIN-SUFFIX,bujidao.org,布吉岛
+  - DOMAIN-SUFFIX,bujidao.cloud,布吉岛
+  - DOMAIN-SUFFIX,bujidao302.com,布吉岛
   - RULE-SET,Telegram,布吉岛
   - RULE-SET,OpenAI,布吉岛
   - RULE-SET,Netflix,布吉岛

@@ -151,6 +151,10 @@ proxy-groups:
     interval: 600
     hidden: true
 rules:
+  - DOMAIN-SUFFIX,bujidao.cc,GFW
+  - DOMAIN-SUFFIX,bujidao.org,GFW
+  - DOMAIN-SUFFIX,bujidao.cloud,GFW
+  - DOMAIN-SUFFIX,bujidao302.com,GFW
   - RULE-SET,adblock,REJECT
   - RULE-SET,Telegram,Telegram
   - RULE-SET,Netflix,Netflix
