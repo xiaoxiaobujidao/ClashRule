@@ -165,6 +165,7 @@ rules:
   - RULE-SET,Apple,Apple
   - RULE-SET,AppStore,Apple
   - RULE-SET,iCloud,iCloud
+  - GEOIP,CN,CnCidr
   - RULE-SET,cncidr,CnCidr
   - RULE-SET,gfw,GFW
   - RULE-SET,lancidr,DIRECT

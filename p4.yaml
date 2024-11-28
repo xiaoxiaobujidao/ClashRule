@@ -151,6 +151,7 @@ proxy-groups:
     interval: 600
     hidden: true
 rules:
+  - GEOIP,CN,CnCidr
   - RULE-SET,Telegram,Telegram
   - RULE-SET,Netflix,Netflix
   - RULE-SET,OpenAI,OpenAI
