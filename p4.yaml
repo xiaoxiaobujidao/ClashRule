@@ -33,7 +33,6 @@ proxy-groups:
       - 高可用性
       - 负载均衡
       - REJECT
-    include-all: true
     icon: "https://app.bujidao.org/svg/China.svg"
   - name: GFW
     type: select
@@ -155,7 +154,6 @@ rules:
   - DOMAIN-SUFFIX,bujidao.org,GFW
   - DOMAIN-SUFFIX,bujidao.cloud,GFW
   - DOMAIN-SUFFIX,bujidao302.com,GFW
-  - GEOIP,CN,CnCidr
   - RULE-SET,Telegram,Telegram
   - RULE-SET,Netflix,Netflix
   - RULE-SET,OpenAI,OpenAI
@@ -169,6 +167,7 @@ rules:
   - RULE-SET,Apple,Apple
   - RULE-SET,AppStore,Apple
   - RULE-SET,iCloud,iCloud
+  - GEOIP,CN,CnCidr
   - RULE-SET,cncidr,CnCidr
   - RULE-SET,gfw,GFW
   - RULE-SET,lancidr,DIRECT

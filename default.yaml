@@ -33,7 +33,6 @@ proxy-groups:
       - 高可用性
       - 负载均衡
       - REJECT
-    include-all: true
     icon: "https://app.bujidao.org/svg/China.svg"
   - name: GFW
     type: select
