@@ -8,7 +8,7 @@ dns:
   prefer-h3: true
   listen: 0.0.0.0:1053
   ipv6: true
-    default-nameserver:  # 基础 DNS 服务器（仅用于解析 DoH/DoT 域名）
+default-nameserver:  # 基础 DNS 服务器（仅用于解析 DoH/DoT 域名）
     - 119.29.29.29    # 腾讯dns
     - 114.114.114.114 # 114DNS
     - 180.76.76.76    # Baidu DNS
