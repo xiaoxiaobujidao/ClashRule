@@ -8,9 +8,12 @@ dns:
   prefer-h3: true
   listen: 0.0.0.0:1053
   ipv6: true
-  default-nameserver:
-    - 119.29.29.29
-    - 223.5.5.5
+default-nameserver:  # 基础 DNS 服务器（仅用于解析 DoH/DoT 域名）
+    - 119.29.29.29    # 腾讯dns
+    - 114.114.114.114 # 114DNS
+    - 180.76.76.76    # Baidu DNS
+    - 2402:4e00::     # 腾讯dns IPv6
+    - 2402:4e00:1::   # 腾讯dns IPv6
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
@@ -18,24 +21,40 @@ dns:
     - localhost.ptlogin2.qq.com
   nameserver-policy:
     'www.baidu.com': '114.114.114.114'
+    'qq.com': '119.29.29.29'
     '+.internal.crop.com': '10.0.0.1'
     'geosite:cn': https://doh.pub/dns-query
-  nameserver:
-    - https://doh.pub/dns-query
-    - https://dns.alidns.com/dns-query
+  nameserver:          # 默认 DNS（国内流量优先）
+    - https://doh.pub/dns-query   # 腾讯DoH
+    - tls://dot.pub               # 腾讯DoT
+    - 114.114.114.114             # 114DNS
+    - 180.76.76.76                # Baidu DNS
+    - 2402:4e00::                 # DNSPod IPv6
+    - 2402:4e00:1::               # DNSPod IPv6
   fallback:
+    - https://dns.twnic.tw/dns-query      # 台湾Quad 101(twnic)
+    - https://8.8.8.8/dns-query           # 谷歌DoH
+    - https://8.8.4.4/dns-query           # 谷歌DoH
+    - tls://8.8.8.8
     - tls://8.8.4.4
     - tls://1.1.1.1
-  proxy-server-nameserver:
-    - https://doh.pub/dns-query
+    - tls://1.0.0.1
   fallback-filter:
     geoip: true
     geoip-code: CN
     ipcidr:
       - 240.0.0.0/4
+      - 127.0.0.0/24
     domain:
       - '+.google.com'
       - '+.facebook.com'
+      - '+.t.me'
+      - '+.telegram.org'
+      - '+.pornhub.com'
+      - '+.x.com'
+      - '+.c3pool.com'
+      - '+.c3pool.org'
+      - '+.nodeseek.com'
 proxies: []
 proxy-groups:
   - name: 布吉岛
@@ -63,10 +82,23 @@ proxy-groups:
     interval: 600
     hidden: true
 rules:
+  # ================== 直连规则（优先级最高） ==================
   - DOMAIN-SUFFIX,bujidao.cc,GFW
   - DOMAIN-SUFFIX,bujidao.org,GFW
   - DOMAIN-SUFFIX,bujidao.cloud,GFW
   - DOMAIN-SUFFIX,bujidao302.com,GFW
+  - RULE-SET,lancidr,DIRECT          # 内网IP直连
+  - RULE-SET,private,DIRECT          # 私有地址直连
+  - DOMAIN-SUFFIX,qq.com,DIRECT       # 显式指定qq.com直连
+  - DOMAIN-SUFFIX,cn,DIRECT           # 所有.cn域名直连
+  - DOMAIN-SUFFIX,gov.cn,DIRECT       # 政府域名
+  - DOMAIN-SUFFIX,gd.cn,DIRECT        # 广东地区域名
+  - DOMAIN-SUFFIX,yn.cn,DIRECT        # 云南地区域名
+  - DOMAIN-SUFFIX,bj.cn,DIRECT        # 北京地区域名
+  - DOMAIN-SUFFIX,中国,DIRECT        # 中国中文域名
+  - GEOIP,CN,DIRECT                  # 国内IP兜底直连
+
+  # ================== 代理规则（优先级次之） ==================
   - RULE-SET,Telegram,布吉岛
   - RULE-SET,OpenAI,布吉岛
   - RULE-SET,Netflix,布吉岛
@@ -74,17 +106,39 @@ rules:
   - RULE-SET,TikTok,布吉岛
   - RULE-SET,Google,布吉岛
   - RULE-SET,YouTube,布吉岛
-  - RULE-SET,gfw,布吉岛
-  - RULE-SET,lancidr,DIRECT
-  - RULE-SET,private,DIRECT
+  - RULE-SET,gfw,布吉岛             # GFW列表域名
+  
+  # ================== 最终匹配规则 ==================
   - MATCH,布吉岛
+
 rule-providers:
+  # ================== 基础规则集 ==================
   reject:
     type: http
     behavior: domain
     url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt
     path: ./ruleset/reject.yaml
     interval: 7200
+  private:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt
+    path: ./ruleset/private.yaml
+    interval: 7200
+  lancidr:
+    type: http
+    behavior: ipcidr
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt
+    path: ./ruleset/lancidr.yaml
+    interval: 7200
+  cncidr:
+    type: http
+    behavior: ipcidr
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt
+    path: ./ruleset/cncidr.yaml
+    interval: 7200
+
+  # ================== 服务类规则集 ==================
   Apple:
     type: http
     behavior: classical
@@ -103,59 +157,12 @@ rule-providers:
     url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/iCloud/iCloud.yaml"
     path: ./ruleset/iCloud.yaml
     interval: 7200
-  Google:
-    type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.yaml"
-    path: ./ruleset/Google.yaml
-    interval: 7200
-  YouTube:
-    type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml"
-    path: ./ruleset/YouTube.yaml
-    interval: 7200
-  private:
-    type: http
-    behavior: domain
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt
-    path: ./ruleset/private.yaml
-    interval: 7200
-  gfw:
-    type: http
-    behavior: domain
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt
-    path: ./ruleset/gfw.yaml
-    interval: 7200
-  Telegram:
-    type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.yaml"
-    path: ./ruleset/Telegram.yaml
-    interval: 7200
-  Netflix:
-    type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix_Classical.yaml"
-    path: ./ruleset/Netflix.yaml
-    interval: 7200
-  TikTok:
-    type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.yaml"
-    path: ./ruleset/TikTok.yaml
-    interval: 7200
-  Disney:
-    type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Disney/Disney.yaml"
-    path: ./ruleset/Disney.yaml
-    interval: 7200
   Microsoft:
     type: http
     behavior: classical
     url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.yaml"
     path: ./ruleset/Microsoft.yaml
+    interval: 7200
   MicrosoftEdge:
     type: http
     behavior: classical
@@ -168,17 +175,45 @@ rule-providers:
     url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bing/Bing.yaml"
     path: ./ruleset/Bing.yaml
     interval: 7200
-  cncidr:
+
+  # ================== 流媒体规则集 ==================
+  Netflix:
     type: http
-    behavior: ipcidr
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt
-    path: ./ruleset/cncidr.yaml
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix_Classical.yaml"
+    path: ./ruleset/Netflix.yaml
     interval: 7200
-  lancidr:
+  Disney:
     type: http
-    behavior: ipcidr
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt
-    path: ./ruleset/lancidr.yaml
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Disney/Disney.yaml"
+    path: ./ruleset/Disney.yaml
+    interval: 7200
+  TikTok:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.yaml"
+    path: ./ruleset/TikTok.yaml
+    interval: 7200
+
+  # ================== 核心代理规则集 ==================
+  Google:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.yaml"
+    path: ./ruleset/Google.yaml
+    interval: 7200
+  YouTube:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml"
+    path: ./ruleset/YouTube.yaml
+    interval: 7200
+  Telegram:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.yaml"
+    path: ./ruleset/Telegram.yaml
     interval: 7200
   OpenAI:
     type: http
@@ -186,4 +221,9 @@ rule-providers:
     url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml
     path: ./ruleset/OpenAI.yaml
     interval: 7200
-
+  gfw:
+    type: http
+    behavior: domain
+    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt
+    path: ./ruleset/gfw.yaml
+    interval: 7200
