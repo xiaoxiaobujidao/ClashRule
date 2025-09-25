@@ -78,8 +78,7 @@ proxy-groups:
     icon: "https://app.bujidao.org/svg/Google.svg"
   - name: OpenAI
     type: select
-    proxies:
-      - 布吉岛
+    proxies: []
     include-all: true
     filter: (?i)^(?!.*(?:🇭🇰|港|hk|hongkong|🏷|t\.me)).*
     icon: "https://app.bujidao.org/svg/OpenAI.svg"
@@ -115,13 +114,9 @@ proxy-groups:
     icon: "https://app.bujidao.org/svg/Disney.svg"
   - name: TikTok
     type: select
-    proxies:
-      - 布吉岛
-      - 最低延迟
-      - 高可用性
-      - 负载均衡
-      - DIRECT
-      - REJECT
+    proxies: []
+    include-all: true
+    filter: (?i)^(?!.*(?:🇭🇰|港|hk|hongkong|🏷|t\.me)).*
     icon: "https://app.bujidao.org/svg/TikTok.svg"
   - name: Apple
     type: select
