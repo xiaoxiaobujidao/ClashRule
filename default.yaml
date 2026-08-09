@@ -55,7 +55,7 @@ proxy-groups:
       - 高可用性
       - 负载均衡
       - REJECT
-    icon: "https://app.bujidao.org/svg/China.svg"
+    icon: "https://s3.bujidao.org/bujidao/svg/China.svg"
   - name: GFW
     type: select
     proxies:
@@ -65,7 +65,7 @@ proxy-groups:
       - 负载均衡
       - DIRECT
       - REJECT
-    icon: "https://app.bujidao.org/svg/Firewall.svg"
+    icon: "https://s3.bujidao.org/bujidao/svg/Firewall.svg"
   - name: Google
     type: select
     proxies:
@@ -75,13 +75,13 @@ proxy-groups:
       - 负载均衡
       - DIRECT
       - REJECT
-    icon: "https://app.bujidao.org/svg/Google.svg"
+    icon: "https://s3.bujidao.org/bujidao/svg/Google.svg"
   - name: Gemini
     type: select
     proxies: []
     include-all: true
     filter: (?i)^(?!.*(?:🇭🇰|港|hk|hongkong|🏷|t\.me)).*
-    icon: "https://app.bujidao.org/svg/Gemini.svg"
+    icon: "https://s3.bujidao.org/bujidao/svg/Gemini.svg"
   - name: HuggingFace
     type: select
     proxies:
@@ -91,13 +91,13 @@ proxy-groups:
       - 负载均衡
       - DIRECT
       - REJECT
-    icon: "https://app.bujidao.org/svg/HuggingFace.svg"
+    icon: "https://s3.bujidao.org/bujidao/svg/HuggingFace.svg"
   - name: OpenAI
     type: select
     proxies: []
     include-all: true
     filter: (?i)^(?!.*(?:🇭🇰|港|hk|hongkong|🏷|t\.me)).*
-    icon: "https://app.bujidao.org/svg/OpenAI.svg"
+    icon: "https://s3.bujidao.org/bujidao/svg/OpenAI.svg"
   - name: Microsoft
     type: select
     proxies:
@@ -107,13 +107,13 @@ proxy-groups:
       - 负载均衡
       - DIRECT
       - REJECT
-    icon: "https://app.bujidao.org/svg/Microsoft.svg"
+    icon: "https://s3.bujidao.org/bujidao/svg/Microsoft.svg"
   - name: Claude
     type: select
     proxies: []
     include-all: true
     filter: (?i)^(?!.*(?:🇭🇰|港|hk|hongkong|🏷|t\.me|🇨🇳|(?:^|[-_.\s/|])cn(?=$|[-_.\s/|])|china|中国|大陆|mainland|🇷🇺|(?:^|[-_.\s/|])ru(?=$|[-_.\s/|])|russia|russian|俄|莫斯科|🇧🇾|(?:^|[-_.\s/|])by(?=$|[-_.\s/|])|belarus|白俄|🇮🇷|(?:^|[-_.\s/|])ir(?=$|[-_.\s/|])|iran|伊朗|🇸🇾|(?:^|[-_.\s/|])sy(?=$|[-_.\s/|])|syria|叙利亚|🇰🇵|(?:^|[-_.\s/|])kp(?=$|[-_.\s/|])|north\s*korea|朝鲜|🇨🇺|(?:^|[-_.\s/|])cu(?=$|[-_.\s/|])|cuba|古巴|🇻🇪|(?:^|[-_.\s/|])ve(?=$|[-_.\s/|])|venezuela|委内瑞拉)).*
-    icon: "https://app.bujidao.org/svg/Claude.svg"
+    icon: "https://s3.bujidao.org/bujidao/svg/Claude.svg"
   - name: Netflix
     type: select
     proxies:
@@ -123,7 +123,7 @@ proxy-groups:
       - 负载均衡
       - DIRECT
       - REJECT
-    icon: "https://app.bujidao.org/svg/Netflix.svg"
+    icon: "https://s3.bujidao.org/bujidao/svg/Netflix.svg"
   - name: Disney
     type: select
     proxies:
@@ -133,13 +133,13 @@ proxy-groups:
       - 负载均衡
       - DIRECT
       - REJECT
-    icon: "https://app.bujidao.org/svg/Disney.svg"
+    icon: "https://s3.bujidao.org/bujidao/svg/Disney.svg"
   - name: TikTok
     type: select
     proxies: []
     include-all: true
     filter: (?i)^(?!.*(?:🇭🇰|港|hk|hongkong|🏷|t\.me)).*
-    icon: "https://app.bujidao.org/svg/TikTok.svg"
+    icon: "https://s3.bujidao.org/bujidao/svg/TikTok.svg"
   - name: Apple
     type: select
     proxies:
@@ -149,7 +149,7 @@ proxy-groups:
       - 高可用性
       - 负载均衡
       - REJECT
-    icon: "https://app.bujidao.org/svg/Apple.svg"
+    icon: "https://s3.bujidao.org/bujidao/svg/Apple.svg"
   - name: iCloud
     type: select
     proxies:
@@ -159,7 +159,7 @@ proxy-groups:
       - 高可用性
       - 负载均衡
       - REJECT
-    icon: "https://app.bujidao.org/svg/iCloud.svg"
+    icon: "https://s3.bujidao.org/bujidao/svg/iCloud.svg"
   - name: Telegram
     type: select
     proxies:
@@ -169,19 +169,19 @@ proxy-groups:
       - 高可用性
       - DIRECT
       - REJECT
-    icon: "https://app.bujidao.org/svg/Telegram.svg"
+    icon: "https://s3.bujidao.org/bujidao/svg/Telegram.svg"
   - name: 最低延迟
     type: url-test
     proxies: []
     url: http://www.gstatic.com/generate_204
     interval: 600
-    icon: "https://app.bujidao.org/svg/Fast.svg"
+    icon: "https://s3.bujidao.org/bujidao/svg/Fast.svg"
   - name: 高可用性
     type: fallback
     proxies: []
     url: http://www.gstatic.com/generate_204
     interval: 300
-    icon: "https://app.bujidao.org/svg/Fallback.svg"
+    icon: "https://s3.bujidao.org/bujidao/svg/Fallback.svg"
   - name: "负载均衡"
     type: load-balance
     proxies: []

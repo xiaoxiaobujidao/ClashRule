@@ -49,13 +49,13 @@ proxy-groups:
     proxies: []
     url: http://www.gstatic.com/generate_204
     interval: 600
-    icon: "https://app.bujidao.org/svg/Fast.svg"
+    icon: "https://s3.bujidao.org/bujidao/svg/Fast.svg"
   - name: 高可用性
     type: fallback
     proxies: []
     url: http://www.gstatic.com/generate_204
     interval: 300
-    icon: "https://app.bujidao.org/svg/Fallback.svg"
+    icon: "https://s3.bujidao.org/bujidao/svg/Fallback.svg"
   - name: "负载均衡"
     type: load-balance
     proxies: []
