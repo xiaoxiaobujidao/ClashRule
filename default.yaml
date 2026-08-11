@@ -98,8 +98,6 @@ proxy-groups:
     proxies:
       - 布吉岛
       - 最低延迟
-      - 高可用性
-      - 负载均衡
       - DIRECT
       - REJECT
     icon: "https://s3.bujidao.org/bujidao/svg/HuggingFace.svg"
