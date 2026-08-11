@@ -193,6 +193,8 @@ rules:
   - DOMAIN-SUFFIX,bujidao.org,GFW
   - DOMAIN-SUFFIX,bujidao.cloud,GFW
   - DOMAIN-SUFFIX,bujidao302.com,GFW
+  - RULE-SET,lancidr,DIRECT
+  - RULE-SET,private,DIRECT
   - RULE-SET,adblock,REJECT
   - RULE-SET,Telegram,Telegram
   - RULE-SET,Netflix,Netflix
@@ -208,14 +210,12 @@ rules:
   - RULE-SET,Bing,Microsoft
   - RULE-SET,Microsoft,Microsoft
   - RULE-SET,MicrosoftEdge,Microsoft
+  - RULE-SET,iCloud,iCloud
   - RULE-SET,Apple,Apple
   - RULE-SET,AppStore,Apple
-  - RULE-SET,iCloud,iCloud
+  - RULE-SET,gfw,GFW
   - GEOIP,CN,CnCidr
   - RULE-SET,cncidr,CnCidr
-  - RULE-SET,gfw,GFW
-  - RULE-SET,lancidr,DIRECT
-  - RULE-SET,private,DIRECT
   - MATCH,布吉岛
 rule-providers:
   reject:

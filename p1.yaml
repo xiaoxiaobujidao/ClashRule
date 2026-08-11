@@ -96,9 +96,8 @@ rules:
   - DOMAIN-SUFFIX,yn.cn,DIRECT        # 云南地区域名
   - DOMAIN-SUFFIX,bj.cn,DIRECT        # 北京地区域名
   - DOMAIN-SUFFIX,中国,DIRECT        # 中国中文域名
-  - GEOIP,CN,DIRECT                  # 国内IP兜底直连
 
-  # ================== 代理规则（优先级次之） ==================
+  # ================== 代理规则（须在 GEOIP 之前） ==================
   - RULE-SET,Telegram,布吉岛
   - RULE-SET,OpenAI,布吉岛
   - RULE-SET,Netflix,布吉岛
@@ -107,7 +106,10 @@ rules:
   - RULE-SET,Google,布吉岛
   - RULE-SET,YouTube,布吉岛
   - RULE-SET,gfw,布吉岛             # GFW列表域名
-  
+
+  # ================== 国内IP兜底直连 ==================
+  - GEOIP,CN,DIRECT
+
   # ================== 最终匹配规则 ==================
   - MATCH,布吉岛
 
