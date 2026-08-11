@@ -76,6 +76,16 @@ proxy-groups:
       - DIRECT
       - REJECT
     icon: "https://s3.bujidao.org/bujidao/svg/Google.svg"
+  - name: Microsoft
+    type: select
+    proxies:
+      - 布吉岛
+      - 最低延迟
+      - 高可用性
+      - 负载均衡
+      - DIRECT
+      - REJECT
+    icon: "https://s3.bujidao.org/bujidao/svg/Microsoft.svg"
   - name: Gemini
     type: select
     proxies: []
@@ -98,16 +108,6 @@ proxy-groups:
     include-all: true
     filter: (?i)^(?!.*(?:🇭🇰|港|hk|hongkong|🏷|t\.me|bujidao)).*
     icon: "https://s3.bujidao.org/bujidao/svg/OpenAI.svg"
-  - name: Microsoft
-    type: select
-    proxies:
-      - 布吉岛
-      - 最低延迟
-      - 高可用性
-      - 负载均衡
-      - DIRECT
-      - REJECT
-    icon: "https://s3.bujidao.org/bujidao/svg/Microsoft.svg"
   - name: Claude
     type: select
     proxies: []
