@@ -88,7 +88,8 @@ proxy-groups:
     icon: "https://s3.bujidao.org/bujidao/svg/Microsoft.svg"
   - name: Gemini
     type: select
-    proxies: []
+    proxies:
+      - 布吉岛
     include-all: true
     filter: (?i)^(?!.*(?:🇭🇰|港|hk|hongkong|🏷|t\.me|bujidao)).*
     icon: "https://s3.bujidao.org/bujidao/svg/Gemini.svg"
@@ -104,13 +105,15 @@ proxy-groups:
     icon: "https://s3.bujidao.org/bujidao/svg/HuggingFace.svg"
   - name: OpenAI
     type: select
-    proxies: []
+    proxies:
+      - 布吉岛
     include-all: true
     filter: (?i)^(?!.*(?:🇭🇰|港|hk|hongkong|🏷|t\.me|bujidao)).*
     icon: "https://s3.bujidao.org/bujidao/svg/OpenAI.svg"
   - name: Claude
     type: select
-    proxies: []
+    proxies:
+      - 布吉岛
     include-all: true
     filter: (?i)^(?!.*(?:🇭🇰|港|hk|hongkong|🏷|t\.me|bujidao|🇨🇳|(?:^|[-_.\s/|])cn(?=$|[-_.\s/|])|china|中国|大陆|mainland|🇷🇺|(?:^|[-_.\s/|])ru(?=$|[-_.\s/|])|russia|russian|俄|莫斯科|🇧🇾|(?:^|[-_.\s/|])by(?=$|[-_.\s/|])|belarus|白俄|🇮🇷|(?:^|[-_.\s/|])ir(?=$|[-_.\s/|])|iran|伊朗|🇸🇾|(?:^|[-_.\s/|])sy(?=$|[-_.\s/|])|syria|叙利亚|🇰🇵|(?:^|[-_.\s/|])kp(?=$|[-_.\s/|])|north\s*korea|朝鲜|🇨🇺|(?:^|[-_.\s/|])cu(?=$|[-_.\s/|])|cuba|古巴|🇻🇪|(?:^|[-_.\s/|])ve(?=$|[-_.\s/|])|venezuela|委内瑞拉)).*
     icon: "https://s3.bujidao.org/bujidao/svg/Claude.svg"
@@ -136,7 +139,8 @@ proxy-groups:
     icon: "https://s3.bujidao.org/bujidao/svg/Disney.svg"
   - name: TikTok
     type: select
-    proxies: []
+    proxies:
+      - 布吉岛
     include-all: true
     filter: (?i)^(?!.*(?:🇭🇰|港|hk|hongkong|🏷|t\.me|bujidao)).*
     icon: "https://s3.bujidao.org/bujidao/svg/TikTok.svg"
