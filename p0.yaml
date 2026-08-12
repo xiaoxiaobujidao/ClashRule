@@ -44,8 +44,6 @@ proxy-groups:
       - 最低延迟
       - 高可用性
       - 负载均衡
-      - DIRECT
-      - REJECT
   - name: CnCidr
     type: select
     proxies:
