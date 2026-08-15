@@ -113,6 +113,13 @@ proxy-groups:
     include-all: true
     filter: (?i)^(?!.*(?:🇭🇰|港|hk|hongkong|🏷|t\.me|bujidao|🇨🇳|(?:^|[-_.\s/|])cn(?=$|[-_.\s/|])|china|中国|大陆|mainland|🇷🇺|(?:^|[-_.\s/|])ru(?=$|[-_.\s/|])|russia|russian|俄|莫斯科|🇧🇾|(?:^|[-_.\s/|])by(?=$|[-_.\s/|])|belarus|白俄|🇮🇷|(?:^|[-_.\s/|])ir(?=$|[-_.\s/|])|iran|伊朗|🇸🇾|(?:^|[-_.\s/|])sy(?=$|[-_.\s/|])|syria|叙利亚|🇰🇵|(?:^|[-_.\s/|])kp(?=$|[-_.\s/|])|north\s*korea|朝鲜|🇨🇺|(?:^|[-_.\s/|])cu(?=$|[-_.\s/|])|cuba|古巴|🇻🇪|(?:^|[-_.\s/|])ve(?=$|[-_.\s/|])|venezuela|委内瑞拉)).*
     icon: "https://s3.bujidao.org/bujidao/svg/Claude.svg"
+  - name: Cursor
+    type: select
+    proxies:
+      - 布吉岛
+    include-all: true
+    filter: (?i)^(?!.*(?:🇭🇰|港|hk|hongkong|🏷|t\.me|bujidao)).*
+    icon: "https://s3.bujidao.org/bujidao/svg/Cursor.svg"
   - name: Netflix
     type: select
     proxies:
@@ -199,6 +206,10 @@ rules:
   - RULE-SET,Netflix,Netflix
   - RULE-SET,OpenAI,OpenAI
   - RULE-SET,Claude,Claude
+  - DOMAIN-SUFFIX,cursor.com,Cursor
+  - DOMAIN-SUFFIX,cursor.sh,Cursor
+  - DOMAIN-SUFFIX,cursor-cdn.com,Cursor
+  - DOMAIN-SUFFIX,cursorapi.com,Cursor
   - RULE-SET,Disney,Disney
   - RULE-SET,TikTok,TikTok
   - DOMAIN-SUFFIX,huggingface.co,HuggingFace
