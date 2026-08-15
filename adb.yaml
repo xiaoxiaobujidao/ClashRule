@@ -61,7 +61,6 @@ proxy-groups:
       - 最低延迟
       - 高可用性
       - 负载均衡
-      - REJECT
     icon: "https://s3.bujidao.org/bujidao/svg/Firewall.svg"
   - name: Google
     type: select
@@ -70,7 +69,6 @@ proxy-groups:
       - 布吉岛
       - 高可用性
       - 负载均衡
-      - REJECT
     icon: "https://s3.bujidao.org/bujidao/svg/Google.svg"
   - name: Microsoft
     type: select
@@ -80,7 +78,6 @@ proxy-groups:
       - 高可用性
       - 负载均衡
       - DIRECT
-      - REJECT
     icon: "https://s3.bujidao.org/bujidao/svg/Microsoft.svg"
   - name: Gemini
     type: select
@@ -94,7 +91,6 @@ proxy-groups:
     proxies:
       - 布吉岛
       - 最低延迟
-      - REJECT
     icon: "https://s3.bujidao.org/bujidao/svg/HuggingFace.svg"
   - name: OpenAI
     type: select
@@ -124,7 +120,6 @@ proxy-groups:
       - 最低延迟
       - 高可用性
       - 负载均衡
-      - REJECT
     icon: "https://s3.bujidao.org/bujidao/svg/Netflix.svg"
   - name: Disney
     type: select
@@ -133,7 +128,6 @@ proxy-groups:
       - 最低延迟
       - 高可用性
       - 负载均衡
-      - REJECT
     icon: "https://s3.bujidao.org/bujidao/svg/Disney.svg"
   - name: TikTok
     type: select
@@ -150,7 +144,6 @@ proxy-groups:
       - 最低延迟
       - 高可用性
       - 负载均衡
-      - REJECT
     icon: "https://s3.bujidao.org/bujidao/svg/Apple.svg"
   - name: iCloud
     type: select
@@ -160,7 +153,6 @@ proxy-groups:
       - 最低延迟
       - 高可用性
       - 负载均衡
-      - REJECT
     icon: "https://s3.bujidao.org/bujidao/svg/iCloud.svg"
   - name: Telegram
     type: select
@@ -169,7 +161,6 @@ proxy-groups:
       - 布吉岛
       - 最低延迟
       - 高可用性
-      - REJECT
     icon: "https://s3.bujidao.org/bujidao/svg/Telegram.svg"
   - name: 最低延迟
     type: url-test
