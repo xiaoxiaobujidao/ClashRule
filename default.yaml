@@ -111,7 +111,7 @@ proxy-groups:
     proxies:
       - 布吉岛
     include-all: true
-    filter: (?i)^(?!.*(?:🇭🇰|港|hk|hongkong|🏷|t\.me|bujidao)).*
+    filter: (?i)^(?!.*(?:🏷|t\.me|bujidao)).*
     icon: "https://s3.bujidao.org/bujidao/svg/Cursor.svg"
   - name: Netflix
     type: select
