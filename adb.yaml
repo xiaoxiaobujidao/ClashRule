@@ -61,7 +61,6 @@ proxy-groups:
       - 最低延迟
       - 高可用性
       - 负载均衡
-      - DIRECT
       - REJECT
     icon: "https://s3.bujidao.org/bujidao/svg/Firewall.svg"
   - name: Google
@@ -71,7 +70,6 @@ proxy-groups:
       - 布吉岛
       - 高可用性
       - 负载均衡
-      - DIRECT
       - REJECT
     icon: "https://s3.bujidao.org/bujidao/svg/Google.svg"
   - name: Microsoft
@@ -96,7 +94,6 @@ proxy-groups:
     proxies:
       - 布吉岛
       - 最低延迟
-      - DIRECT
       - REJECT
     icon: "https://s3.bujidao.org/bujidao/svg/HuggingFace.svg"
   - name: OpenAI
@@ -127,7 +124,6 @@ proxy-groups:
       - 最低延迟
       - 高可用性
       - 负载均衡
-      - DIRECT
       - REJECT
     icon: "https://s3.bujidao.org/bujidao/svg/Netflix.svg"
   - name: Disney
@@ -137,7 +133,6 @@ proxy-groups:
       - 最低延迟
       - 高可用性
       - 负载均衡
-      - DIRECT
       - REJECT
     icon: "https://s3.bujidao.org/bujidao/svg/Disney.svg"
   - name: TikTok
@@ -174,7 +169,6 @@ proxy-groups:
       - 布吉岛
       - 最低延迟
       - 高可用性
-      - DIRECT
       - REJECT
     icon: "https://s3.bujidao.org/bujidao/svg/Telegram.svg"
   - name: 最低延迟
