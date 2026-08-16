@@ -157,8 +157,8 @@ proxy-groups:
   - name: Telegram
     type: select
     proxies:
-      - 负载均衡
       - 布吉岛
+      - 负载均衡
       - 最低延迟
       - 高可用性
     icon: "https://s3.bujidao.org/bujidao/svg/Telegram.svg"
