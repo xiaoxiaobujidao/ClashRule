@@ -14,12 +14,10 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
-    - '*.lan'
+    - "*.lan"
     - localhost.ptlogin2.qq.com
   nameserver-policy:
-    'www.baidu.com': '114.114.114.114'
-    '+.internal.crop.com': '10.0.0.1'
-    'geosite:cn': https://doh.pub/dns-query
+    geosite:cn: https://doh.pub/dns-query
   nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
@@ -27,6 +25,7 @@ dns:
     - tls://8.8.4.4
     - tls://1.1.1.1
   proxy-server-nameserver:
+    - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
   fallback-filter:
     geoip: true
@@ -34,8 +33,8 @@ dns:
     ipcidr:
       - 240.0.0.0/4
     domain:
-      - '+.google.com'
-      - '+.facebook.com'
+      - +.google.com
+      - +.facebook.com
 proxies: []
 proxy-groups:
   - name: 布吉岛

@@ -17,13 +17,11 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
-    - '*.lan'
+    - "*.lan"
     - localhost.ptlogin2.qq.com
   nameserver-policy:
-    'www.baidu.com': '114.114.114.114'
-    'qq.com': '119.29.29.29'
-    '+.internal.crop.com': '10.0.0.1'
-    'geosite:cn': https://doh.pub/dns-query
+    qq.com: 119.29.29.29
+    geosite:cn: https://doh.pub/dns-query
   nameserver:          
     - https://doh.pub/dns-query   
     - tls://dot.pub               
@@ -39,6 +37,9 @@ dns:
     - tls://8.8.4.4
     - tls://1.1.1.1
     - tls://1.0.0.1
+  proxy-server-nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
   fallback-filter:
     geoip: true
     geoip-code: CN
@@ -46,15 +47,15 @@ dns:
       - 240.0.0.0/4
       - 127.0.0.0/24
     domain:
-      - '+.google.com'
-      - '+.facebook.com'
-      - '+.t.me'
-      - '+.telegram.org'
-      - '+.pornhub.com'
-      - '+.x.com'
-      - '+.c3pool.com'
-      - '+.c3pool.org'
-      - '+.nodeseek.com'
+      - +.google.com
+      - +.facebook.com
+      - +.t.me
+      - +.telegram.org
+      - +.pornhub.com
+      - +.x.com
+      - +.c3pool.com
+      - +.c3pool.org
+      - +.nodeseek.com
 proxies: []
 proxy-groups:
   - name: 布吉岛
