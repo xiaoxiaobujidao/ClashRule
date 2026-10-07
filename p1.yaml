@@ -58,7 +58,7 @@ dns:
       - +.nodeseek.com
 proxies: []
 proxy-groups:
-  - name: 布吉岛
+  - name: 手动选择
     type: select
     proxies:
       - 最低延迟
@@ -99,20 +99,20 @@ rules:
   - DOMAIN-SUFFIX,中国,DIRECT        # 中国中文域名
 
   # ================== 代理规则（须在 GEOIP 之前） ==================
-  - RULE-SET,Telegram,布吉岛
-  - RULE-SET,OpenAI,布吉岛
-  - RULE-SET,Netflix,布吉岛
-  - RULE-SET,Disney,布吉岛
-  - RULE-SET,TikTok,布吉岛
-  - RULE-SET,Google,布吉岛
-  - RULE-SET,YouTube,布吉岛
-  - RULE-SET,gfw,布吉岛             # GFW列表域名
+  - RULE-SET,Telegram,手动选择
+  - RULE-SET,OpenAI,手动选择
+  - RULE-SET,Netflix,手动选择
+  - RULE-SET,Disney,手动选择
+  - RULE-SET,TikTok,手动选择
+  - RULE-SET,Google,手动选择
+  - RULE-SET,YouTube,手动选择
+  - RULE-SET,gfw,手动选择             # GFW列表域名
 
   # ================== 国内IP兜底直连 ==================
   - GEOIP,CN,DIRECT
 
   # ================== 最终匹配规则 ==================
-  - MATCH,布吉岛
+  - MATCH,手动选择
 
 rule-providers:
   # ================== 基础规则集 ==================

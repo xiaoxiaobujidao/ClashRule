@@ -37,7 +37,7 @@ dns:
       - +.facebook.com
 proxies: []
 proxy-groups:
-  - name: 布吉岛
+  - name: 手动选择
     type: select
     proxies:
       - 最低延迟
@@ -62,18 +62,18 @@ proxy-groups:
     interval: 600
     hidden: true
 rules:
-  - DOMAIN-SUFFIX,bujidao.cc,布吉岛
-  - DOMAIN-SUFFIX,bujidao.org,布吉岛
-  - DOMAIN-SUFFIX,bujidao.cloud,布吉岛
-  - DOMAIN-SUFFIX,bujidao302.com,布吉岛
-  - RULE-SET,Telegram,布吉岛
-  - RULE-SET,OpenAI,布吉岛
-  - RULE-SET,Netflix,布吉岛
-  - RULE-SET,Disney,布吉岛
-  - RULE-SET,TikTok,布吉岛
-  - RULE-SET,Google,布吉岛
-  - RULE-SET,YouTube,布吉岛
-  - RULE-SET,gfw,布吉岛
+  - DOMAIN-SUFFIX,bujidao.cc,手动选择
+  - DOMAIN-SUFFIX,bujidao.org,手动选择
+  - DOMAIN-SUFFIX,bujidao.cloud,手动选择
+  - DOMAIN-SUFFIX,bujidao302.com,手动选择
+  - RULE-SET,Telegram,手动选择
+  - RULE-SET,OpenAI,手动选择
+  - RULE-SET,Netflix,手动选择
+  - RULE-SET,Disney,手动选择
+  - RULE-SET,TikTok,手动选择
+  - RULE-SET,Google,手动选择
+  - RULE-SET,YouTube,手动选择
+  - RULE-SET,gfw,手动选择
   - MATCH,DIRECT
 rule-providers:
   reject:

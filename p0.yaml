@@ -37,7 +37,7 @@ dns:
       - +.facebook.com
 proxies: []
 proxy-groups:
-  - name: 布吉岛
+  - name: 手动选择
     type: select
     proxies:
       - 最低延迟
@@ -47,7 +47,7 @@ proxy-groups:
     type: select
     proxies:
       - DIRECT
-      - 布吉岛
+      - 手动选择
       - 最低延迟
       - 高可用性
       - 负载均衡
@@ -56,7 +56,7 @@ proxy-groups:
   - name: GFW
     type: select
     proxies:
-      - 布吉岛
+      - 手动选择
       - 最低延迟
       - 高可用性
       - 负载均衡
@@ -65,14 +65,14 @@ proxy-groups:
     type: select
     proxies:
       - 最低延迟
-      - 布吉岛
+      - 手动选择
       - 高可用性
       - 负载均衡
     icon: "https://s3.bujidao.org/bujidao/svg/Google.svg"
   - name: Microsoft
     type: select
     proxies:
-      - 布吉岛
+      - 手动选择
       - 最低延迟
       - 高可用性
       - 负载均衡
@@ -81,41 +81,41 @@ proxy-groups:
   - name: Gemini
     type: select
     proxies:
-      - 布吉岛
+      - 手动选择
     include-all: true
     filter: (?i)^(?!.*(?:🇭🇰|港|hk|hongkong|🏷|t\.me|bujidao)).*
     icon: "https://s3.bujidao.org/bujidao/svg/Gemini.svg"
   - name: HuggingFace
     type: select
     proxies:
-      - 布吉岛
+      - 手动选择
       - 最低延迟
     icon: "https://s3.bujidao.org/bujidao/svg/HuggingFace.svg"
   - name: OpenAI
     type: select
     proxies:
-      - 布吉岛
+      - 手动选择
     include-all: true
     filter: (?i)^(?!.*(?:🇭🇰|港|hk|hongkong|🏷|t\.me|bujidao)).*
     icon: "https://s3.bujidao.org/bujidao/svg/OpenAI.svg"
   - name: Claude
     type: select
     proxies:
-      - 布吉岛
+      - 手动选择
     include-all: true
     filter: (?i)^(?!.*(?:🇭🇰|港|hk|hongkong|🏷|t\.me|bujidao|🇨🇳|(?:^|[-_.\s/|])cn(?=$|[-_.\s/|])|china|中国|大陆|mainland|🇷🇺|(?:^|[-_.\s/|])ru(?=$|[-_.\s/|])|russia|russian|俄|莫斯科|🇧🇾|(?:^|[-_.\s/|])by(?=$|[-_.\s/|])|belarus|白俄|🇮🇷|(?:^|[-_.\s/|])ir(?=$|[-_.\s/|])|iran|伊朗|🇸🇾|(?:^|[-_.\s/|])sy(?=$|[-_.\s/|])|syria|叙利亚|🇰🇵|(?:^|[-_.\s/|])kp(?=$|[-_.\s/|])|north\s*korea|朝鲜|🇨🇺|(?:^|[-_.\s/|])cu(?=$|[-_.\s/|])|cuba|古巴|🇻🇪|(?:^|[-_.\s/|])ve(?=$|[-_.\s/|])|venezuela|委内瑞拉)).*
     icon: "https://s3.bujidao.org/bujidao/svg/Claude.svg"
   - name: Cursor
     type: select
     proxies:
-      - 布吉岛
+      - 手动选择
     include-all: true
     filter: (?i)^(?!.*(?:🏷|t\.me|bujidao)).*
     icon: "https://s3.bujidao.org/bujidao/svg/Cursor.svg"
   - name: Netflix
     type: select
     proxies:
-      - 布吉岛
+      - 手动选择
       - 最低延迟
       - 高可用性
       - 负载均衡
@@ -123,7 +123,7 @@ proxy-groups:
   - name: Disney
     type: select
     proxies:
-      - 布吉岛
+      - 手动选择
       - 最低延迟
       - 高可用性
       - 负载均衡
@@ -131,7 +131,7 @@ proxy-groups:
   - name: TikTok
     type: select
     proxies:
-      - 布吉岛
+      - 手动选择
     include-all: true
     filter: (?i)^(?!.*(?:🇭🇰|港|hk|hongkong|🏷|t\.me|bujidao)).*
     icon: "https://s3.bujidao.org/bujidao/svg/TikTok.svg"
@@ -139,7 +139,7 @@ proxy-groups:
     type: select
     proxies:
       - DIRECT
-      - 布吉岛
+      - 手动选择
       - 最低延迟
       - 高可用性
       - 负载均衡
@@ -148,7 +148,7 @@ proxy-groups:
     type: select
     proxies:
       - DIRECT
-      - 布吉岛
+      - 手动选择
       - 最低延迟
       - 高可用性
       - 负载均衡
@@ -156,7 +156,7 @@ proxy-groups:
   - name: Telegram
     type: select
     proxies:
-      - 布吉岛
+      - 手动选择
       - 负载均衡
       - 最低延迟
       - 高可用性
